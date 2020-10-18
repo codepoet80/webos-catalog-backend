@@ -14,7 +14,7 @@ WebService/__museumSessions
 
 # Exclude files that should come from an archive repo (instead of a code repo)
 *.ipk
-*.png
+com.palm.*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

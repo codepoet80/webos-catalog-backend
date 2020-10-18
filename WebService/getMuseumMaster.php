@@ -136,8 +136,8 @@
 
 	$extraData = array();
 
-	$myfile  = fopen("../masterAppData.json", "r");
-	$masterdata = json_decode(fread($myfile,filesize("../masterAppData.json")), true);
+	$myfile  = fopen("../extantAppData.json", "r");
+	$masterdata = json_decode(fread($myfile,filesize("../extantAppData.json")), true);
 	fclose($myfile);
 	
 	$myfile  = fopen("../missingApps.json", "r");

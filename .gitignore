@@ -12,8 +12,8 @@
 .DS_Store
 
 # Exclude files that should come from an archive repo (instead of a code repo)
-.ipk
-.png
+*.ipk
+*.png
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

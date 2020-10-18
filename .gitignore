@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 .DS_Store
+WebService/__museumSessions
 
 # Exclude files that should come from an archive repo (instead of a code repo)
 *.ipk

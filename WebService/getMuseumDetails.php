@@ -21,7 +21,7 @@
 	function getDetailData($myIdx) {
 		if (!isset($myIdx)) {$myIdx = $id;}
 		//Get the JSON file over HTTP to this same server, to allow Virtual Directory support
-		$myfile  = fopen("http://". $_SERVER['SERVER_NAME']. "/AppMetadata/{$myIdx}.json", "rb");
+		$myfile  = fopen("http://packages.webosarchive.com/AppMetadata/{$myIdx}.json", "rb");
 		$content = stream_get_contents($myfile);
 		fclose($myfile);
 

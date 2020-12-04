@@ -1,3 +1,4 @@
+<?php
 $latest = "com.palm.app-museum2_2.7.2_all.ipk";
 $attachment_location = $_SERVER["DOCUMENT_ROOT"] . "/" . $latest;
 if (file_exists($attachment_location)) {
@@ -13,3 +14,4 @@ if (file_exists($attachment_location)) {
 } else {
     die("Error: File not found.");
 } 
+?>

@@ -18,10 +18,11 @@
 		flush();
 	}
 	
-	function getDetailData($myIdx) {
+	function getDetailData($host, $myIdx) {
 		if (!isset($myIdx)) {$myIdx = $id;}
 		//Get the JSON file over HTTP to this same server, to allow Virtual Directory support
-		$myfile  = fopen("http://packages.webosarchive.com/AppMetadata/{$myIdx}.json", "rb");
+		$mypath = "http://{$host}/AppMetadata/{$myIdx}.json";
+		$myfile  = fopen($mypath, "rb");
 		$content = stream_get_contents($myfile);
 		fclose($myfile);
 
@@ -35,6 +36,7 @@
 	}
 
 	if(!isset($_REQUEST['appIds']) || $_REQUEST['appIds'] !== "random") {
-		getDetailData($id);
+		$config = include('config.php');
+		getDetailData($config["package_host"], $id);
 	}
 ?>

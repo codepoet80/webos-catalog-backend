@@ -1,0 +1,55 @@
+body 
+{
+    font-family:Arial, Helvetica, sans-serif; max-width: 800px;
+    margin-left: 5%;
+}
+.appIcon 
+{
+    width:128px;height:128px;float:right;
+    margin-top:10px;margin-right:40px;
+    border-radius: 10%;
+}
+h1 
+{
+    font-size:42px;
+    padding-top: 18px; margin-bottom:38px;
+}
+td
+{
+    font-size:18px;
+    min-width: 200px; padding-bottom: 18px;
+}
+.rowTitle
+{
+    font-weight:bold;
+    vertical-align: top;
+}
+ul 
+{
+    margin-bottom: 0px;
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+li
+{
+    font-size:18px;
+}
+.screenshot 
+{
+    width:64px;
+    height:64px;
+    object-fit:cover;
+    margin-right: 8px;
+    border-radius: 15%;
+}
+.deviceSupport::after
+{
+    content: " \2717";
+    content: url(false.png);
+}
+.deviceSupport1::after
+{
+    content: " \2713";
+    content: url(true.png);
+}

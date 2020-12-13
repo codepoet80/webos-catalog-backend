@@ -1,6 +1,18 @@
 <html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-12254772-3');
+</script>
+
 <?php
 $config = include('WebService/config.php');
+$encode_seed = uniqid();
 
 $string = file_get_contents("extantAppData.json");
 if ($string === false) {
@@ -40,12 +52,18 @@ $downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_deta
 $imgPath = "http://" . $config["package_host"] . "/AppImages/";
 
 ?>
-<head>
 <title><?php echo $found_app["title"] ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="webmuseum.css">
+<script>
+function getLink(encodedLink)
+{
+	var downloadURL = atob(encodedLink).replace("<?php echo ($encode_seed)?>", "");
+	window.open(downloadURL);
+}
+</script>
 </head>
-<body>
-<h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"> &nbsp;webOS App Museum II</a></h2>
+<body class="show-museum">
+<h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"><a/> &nbsp;<a href="showMuseumCategories.php">webOS App Museum II</a></h2>
 <table border="0" >
 <tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
 	<td rowspan="2">
@@ -57,7 +75,7 @@ $imgPath = "http://" . $config["package_host"] . "/AppImages/";
 <tr><td class="rowTitle">Version</td><td><?php echo $app_detail["version"] ?></td><td></td></tr>
 <tr><td class="rowTitle">Description</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["description"]) ?></td></tr>
 <tr><td class="rowTitle">Version Note</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["versionNote"]) ?></td></tr>
-<tr><td class="rowTitle">Download</td><td colspan="2"><a href="<?php echo $downloadURI ?>" target="_blank">Direct Link</a></td></tr>
+<tr><td class="rowTitle">Download</td><td colspan="2"><a href="javascript:getLink('<?php echo base64_encode($encode_seed . $downloadURI) ?>');">Direct Link</a></td></tr>
 <tr><td class="rowTitle">Device Support</td>
 <td>
 	<ul>
@@ -82,11 +100,13 @@ foreach ($app_detail["images"] as $value) {
 <tr><td class="rowTitle">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
 <tr><td class="rowTitle">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
 </table>
-
+<?php
+include 'footer.php';
+?>
 <div style="display:none;margin-top:18px">
 <?php
-echo (json_encode($app_a) . "<br><br>");
-echo $content;
+//echo (json_encode($app_a) . "<br><br>");
+//echo $content;
 ?>
 </body>
 </html>

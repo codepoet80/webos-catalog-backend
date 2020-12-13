@@ -1,7 +1,28 @@
-body 
+body, *
 {
-    font-family:Arial, Helvetica, sans-serif; max-width: 800px;
+    font-family:Arial, Helvetica, sans-serif; 
+}
+.show-museum 
+{
+    max-width: 800px;
     margin-left: 5%;
+}
+a 
+{ 
+    text-decoration: none; 
+    color:rgb(62,11,249); 
+}
+a:hover 
+{ 
+    text-decoration: underline; color:rgb(62,11,249); 
+}
+small 
+{ 
+    font-size: 14px; line-height: 1.6;
+}
+strong 
+{ 
+    font-size: 26px; font-weight:bold; 
 }
 .appIcon 
 {

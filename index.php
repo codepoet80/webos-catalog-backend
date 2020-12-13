@@ -16,7 +16,7 @@ strong { font-size: 26px; font-weight:bold; }
 <td width=100% height=100% align="center" valign="middle" >
 <img src="icon.png"><br/>
 &nbsp;<br/>
-<strong>webOS App Museum II<br/><strong>
+<strong>webOS App Museum II</strong><br/>
 <small>A project of <a href="http://www.webosarchive.com">webOSArchive.com</a></small><br>
 &nbsp;<br>
 <a href="com.palm.app-museum2_2.7.2_all.ipk">Download the Current Version: 2.7.2</a><br><br>

@@ -45,6 +45,7 @@ $imgPath = "http://" . $config["package_host"] . "/AppImages/";
 <link rel="stylesheet" href="webmuseum.css">
 </head>
 <body>
+<h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"> &nbsp;webOS App Museum II</a></h2>
 <table border="0" >
 <tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
 	<td rowspan="2">

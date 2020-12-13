@@ -53,3 +53,44 @@ li
     content: " \2713";
     content: url(true.png);
 }
+
+.museumMaster {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+}
+h2
+{
+    font-size:28px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+h2 a {
+    color: black;
+    text-decoration: none;
+}
+.categoryMenu {
+    background-color: lightgray;
+    color: #FFF;
+    width: 220px;
+    position: relative;
+    margin-top: 20px;
+    padding: 10px;
+}
+.categoryMenu a {
+    color:black;
+}
+.appsList {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    position: absolute;
+    left: 220px;
+    right: 0;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.categoryMenu, .appsList {
+    display: inline-block;
+    vertical-align: top;
+}

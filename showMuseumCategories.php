@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="shortcut icon" href="favicon.ico">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
 <script>

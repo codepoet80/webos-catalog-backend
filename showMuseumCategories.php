@@ -64,7 +64,8 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 		}
 		else
 		{
-			echo ("Choose a category to view apps...");
+			echo ("<p align='middle'><img src='webos-apps.png'></p>");
+			echo ("<p align='middle'><i>Choose a category to view apps...</i></p>");
 		}
 		?>
 	</div>

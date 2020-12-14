@@ -30,7 +30,7 @@ if ($json_a === null) {
 }
 
 $found_id = "null";
-$search_str = $_SERVER["QUERY_STRING"];
+$search_str = $_GET["app"];
 $search_str = urldecode(strtolower($search_str));
 $found_app;
 foreach ($json_a as $this_app => $app_a) {
@@ -51,7 +51,13 @@ $content = stream_get_contents($meta_file);
 fclose($meta_file);
 
 $app_detail = json_decode($content, true);
+
+//Improve some strings for web output
 $imgPath = "http://" . $config["package_host"] . "/AppImages/";
+$app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
+$app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
+$app_detail["versionNote"] = str_replace("\n\n", "<br>", $app_detail["versionNote"]);
+$app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
 
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
@@ -59,13 +65,18 @@ $downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_deta
 $downloadURI = base64_encode($downloadURI);
 $splitPos = rand(1, strlen($downloadURI) - 2);
 $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);
+
+//Figure out where to go back to
+parse_str($_SERVER["QUERY_STRING"], $query);
+unset($query["app"]);
+$homePath = "showMuseum.php?" . http_build_query($query);
 ?>
 <title><?php echo $found_app["title"] ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="webmuseum.css">
 <script src="downloadHelper.php"></script>
 </head>
 <body class="show-museum" style="margin-right:1.3em">
-<h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"><a/> &nbsp;<a href="showMuseumCategories.php">webOS App Museum II</a></h2>
+<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 <br>
 <table border="0" style="margin-left:1.3em;">
 <tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
@@ -76,8 +87,8 @@ $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . s
 <tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
 <tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
 <tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
-<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo str_replace("\r\n", "<br>", $app_detail["description"]) ?></td></tr>
-<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo str_replace("\r\n", "<br>", $app_detail["versionNote"]) ?></td></tr>
+<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"] ?></td></tr>
+<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"] ?></td></tr>
 <tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
 <tr><td class="rowTitle">Device Support</td>
 <td class="rowDetail">

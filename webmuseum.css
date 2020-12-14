@@ -103,6 +103,12 @@ h2 a
     color: black;
     text-decoration: none;
 }
+h3
+{
+    margin-top: -5px;
+    margin-bottom: 30px;
+    color: dimgray;
+}
 .categoryMenu 
 {
     background-color: lightgray;
@@ -142,7 +148,38 @@ h2 a
     margin-top: 20px;
     margin-left: 30px;
 }
-.categoryMenu, .appsList {
+.categoryMenu, .appsList 
+{
     display: inline-block;
     vertical-align: top;
+}
+.search 
+{
+    padding:6px 15px;
+    min-width: 250px;
+    background:lightgray;
+    border:2px solid #dbdbdb;
+    border-radius: 5px 0px 0px 5px;
+    color: rgb(62,11,249);
+}
+.search:focus-within
+{
+    padding:6px 15px;
+    background:white;
+    border:2px solid #dbdbdb;
+}
+.search-button 
+{
+    position:relative;
+    padding:6px 15px;
+    left:-8px;
+    border:2px solid rgb(62,11,249);
+    background-color:rgb(62,11,249);
+    color:#fafafa;
+    border-radius: 0px 5px 5px 0px;
+}
+.search-button:hover  
+{
+    background-color:#fafafa;
+    color:rgb(62,11,249);
 }

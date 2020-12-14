@@ -57,11 +57,11 @@ Need <a href="http://www.webosarchive.com/docs/appstores/#install-webos-app-muse
 
 <td valign="top" class="layoutCell">
 <h3>Other Ways to view the Museum</h3>
-<p><a href="showMuseumCategories.php">Browse Online by Category</a></p>
+<p><a href="showMuseum.php">Browse Catalog Online</a></p>
 <p>Add feeds to PreWare (for webOS 1.x)</a><br/>
-<small>Coming Soon</small></p>
+<small><i>Coming Soon</i></small></p>
 <p>Download Entire Archive<br/>
-<small>Coming Soon</small></p>
+<small><i>Coming Soon</i></small></p>
 </td>
 </tr>
 

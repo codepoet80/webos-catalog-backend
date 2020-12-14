@@ -1,4 +1,6 @@
 <?PHP
+	header('Content-Type: application/json');
+
 	$id = @$_GET['id'];
 	
 	function gMD_startOutputBuffer() {

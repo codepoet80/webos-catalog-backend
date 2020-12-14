@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <link rel="shortcut icon" href="favicon.ico">
@@ -32,12 +33,25 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 	fclose($app_file);
 	$app_response = json_decode($app_content, true);
 }
+elseif ($_GET['search'] != null)
+{
+	$app_path = "http://" . $config["service_host"] . "/WebService/getSearchResults.php?". $_GET['search'];
+	$app_file = fopen($app_path, "rb");
+	$app_content = stream_get_contents($app_file);
+	fclose($app_file);
+	$app_response = json_decode($app_content, true);
+}
+
+//Figure out where to go back to
+$homePath = "/";
+if (isset($app_response))
+	$homePath = "showMuseum.php";
 ?>
 <title>webOS App Museum II - Web Catalog</title>
 <link rel="stylesheet" href="webmuseum.css">
 </head>
-<body class="show-museum" style="margin-right:1.3em">
-<h2><a href="/"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="/">webOS App Museum II</a></h2>
+<body class="show-museum" style="margin-right:1.3em" onload="document.getElementById('txtSearch').focus()">
+<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 <div class="museumMaster" style="margin-left:1.3em;">
 	<div class="categoryMenu">
 		<?php
@@ -50,7 +64,7 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 					echo "<span ";
 					if (strtolower($catname) == strtolower($_GET['category']))
 						echo ("class='categorySelected'");
-					echo ("><a href='showMuseumCategories.php?category={$catencode}&count={$catcount}'>{$catname}</a></span> <span class='legal'>({$catcount} Apps)</span><br/>");
+					echo ("><a href='showMuseum.php?category={$catencode}&count={$catcount}'>{$catname}</a></span> <span class='legal'>({$catcount} Apps)</span><br/>");
 				}
 			}
 		?>
@@ -60,10 +74,16 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 		<?php
 		if (count($app_response["data"]) > 0)
 		{
+			if (isset($_GET['category'])) {
+				echo ("<h3>Category: " . $_GET['category'] . "</h3>");
+			}
+			if (isset($_GET['search'])) {
+				echo ("<h3>Search Results: '" . $_GET['search'] . "'</h3>");
+			}
 			echo("<table cellpadding='5'>");
 			foreach($app_response["data"] as $app) {
-				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$app["id"]}'><img style='width:64px; height:64px' src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
-				echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$app["id"]}'>{$app["title"]}</a></b><br/>");
+				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
+				echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
 				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
 				echo("</td></tr>");
 			}
@@ -72,8 +92,16 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 		}
 		else
 		{
-			echo ("<p align='middle' style='margin-top:80px'><img src='webos-apps.png'></p>");
-			echo ("<p align='middle'><i>Choose a category to view apps...</i></p>");
+			?>
+			<p align='middle' style='margin-top:60px'><img src='webos-apps.png'></p>
+			<p align='middle'><i>Choose a category to view apps, or...</i></p>
+			<form action="" method="get">
+				<div style="margin-left:auto;margin-right:auto;text-align:center;">
+				<input type="text" id="txtSearch" name="search" class="search" placeholder="Search...">
+				<input type="submit" class="search-button" value="Go!">
+				</div>
+			</form>
+			<?php
 		}
 		?>
 	</div>

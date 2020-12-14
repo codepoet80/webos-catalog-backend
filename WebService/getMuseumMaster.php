@@ -1,4 +1,5 @@
 <?PHP
+	header('Content-Type: application/json');
 	/*
 	 * query inputs:
 	 * - device

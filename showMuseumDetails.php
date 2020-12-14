@@ -56,7 +56,7 @@ $app_detail = json_decode($content, true);
 $imgPath = "http://" . $config["package_host"] . "/AppImages/";
 $app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
 $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
-$app_detail["versionNote"] = str_replace("\n\n", "<br>", $app_detail["versionNote"]);
+$app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
 $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
 
 //Encode URL to reduce brute force downloads
@@ -119,8 +119,8 @@ include 'footer.php';
 ?>
 <div style="display:none;margin-top:18px">
 <?php
-//echo (json_encode($app_a) . "<br><br>");
-//echo $content;
+echo (json_encode($app_a) . "<br><br>");
+echo $content;
 ?>
 </body>
 </html>

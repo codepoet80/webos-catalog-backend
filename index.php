@@ -67,7 +67,7 @@ Need <a href="http://www.webosarchive.com/docs/appstores/#install-webos-app-muse
 
 <tr>
 <td colspan="2" align="center">
-Got some IPKs archived that you want to contribute?<br>Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="mailto:curator@webosarchive.com">email the curator</a>!
+Got some IPKs archived that you want to contribute?<br>Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
 
 </td>
 </tr>

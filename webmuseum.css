@@ -20,6 +20,10 @@ small
 { 
     font-size: 14px; line-height: 1.6;
 }
+.legal 
+{ 
+    font-size: 12px; line-height: 1.2; color: dimgray;
+}
 strong 
 { 
     font-size: 26px; font-weight:bold; 

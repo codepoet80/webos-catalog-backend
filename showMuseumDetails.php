@@ -7,14 +7,16 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-12254772-3');
 </script>
 
 <?php
 $config = include('WebService/config.php');
-$encode_seed = uniqid();
-
+session_start();
+if (!isset($_SESSION['encode_salt']))
+{
+	$_SESSION['encode_salt'] = uniqid();
+}
 $string = file_get_contents("extantAppData.json");
 if ($string === false) {
 	echo ("ERROR: Could not find catalog file");
@@ -49,19 +51,18 @@ $content = stream_get_contents($meta_file);
 fclose($meta_file);
 
 $app_detail = json_decode($content, true);
-$downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
 $imgPath = "http://" . $config["package_host"] . "/AppImages/";
 
+//Encode URL to reduce brute force downloads
+//	The complete archive will be posted elsewhere to save my bandwidth
+$downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+$downloadURI = base64_encode($downloadURI);
+$splitPos = rand(1, strlen($downloadURI) - 2);
+$downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);
 ?>
 <title><?php echo $found_app["title"] ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="webmuseum.css">
-<script>
-function getLink(encodedLink)
-{
-	var downloadURL = atob(encodedLink).replace("<?php echo ($encode_seed)?>", "");
-	window.open(downloadURL);
-}
-</script>
+<script src="downloadHelper.php"></script>
 </head>
 <body class="show-museum">
 <h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"><a/> &nbsp;<a href="showMuseumCategories.php">webOS App Museum II</a></h2>
@@ -76,7 +77,7 @@ function getLink(encodedLink)
 <tr><td class="rowTitle">Version</td><td><?php echo $app_detail["version"] ?></td><td></td></tr>
 <tr><td class="rowTitle">Description</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["description"]) ?></td></tr>
 <tr><td class="rowTitle">Version Note</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["versionNote"]) ?></td></tr>
-<tr><td class="rowTitle">Download</td><td colspan="2"><a href="javascript:getLink('<?php echo base64_encode($encode_seed . $downloadURI) ?>');">Direct Link</a></td></tr>
+<tr><td class="rowTitle">Download</td><td colspan="2"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
 <tr><td class="rowTitle">Device Support</td>
 <td>
 	<ul>

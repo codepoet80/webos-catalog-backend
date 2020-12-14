@@ -119,8 +119,8 @@ include 'footer.php';
 ?>
 <div style="display:none;margin-top:18px">
 <?php
-echo (json_encode($app_a) . "<br><br>");
-echo $content;
+//echo (json_encode($app_a) . "<br><br>");
+//echo $content;
 ?>
 </body>
 </html>

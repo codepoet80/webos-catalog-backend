@@ -36,9 +36,9 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 <title>webOS App Museum II - Web Catalog</title>
 <link rel="stylesheet" href="webmuseum.css">
 </head>
-<body class="show-museum">
+<body class="show-museum" style="margin-right:1.3em">
 <h2><a href="/"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="/">webOS App Museum II</a></h2>
-<div class="museumMaster">
+<div class="museumMaster" style="margin-left:1.3em;">
 	<div class="categoryMenu">
 		<?php
 			foreach ($category_list as $array_key) {
@@ -62,7 +62,7 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 		{
 			echo("<table cellpadding='5'>");
 			foreach($app_response["data"] as $app) {
-				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$app["id"]}'><img src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
+				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$app["id"]}'><img style='width:64px; height:64px' src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
 				echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$app["id"]}'>{$app["title"]}</a></b><br/>");
 				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
 				echo("</td></tr>");

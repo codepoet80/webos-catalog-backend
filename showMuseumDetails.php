@@ -64,9 +64,10 @@ $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . s
 <link rel="stylesheet" href="webmuseum.css">
 <script src="downloadHelper.php"></script>
 </head>
-<body class="show-museum">
+<body class="show-museum" style="margin-right:1.3em">
 <h2><a href="showMuseumCategories.php"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"><a/> &nbsp;<a href="showMuseumCategories.php">webOS App Museum II</a></h2>
-<table border="0" >
+<br>
+<table border="0" style="margin-left:1.3em;">
 <tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
 	<td rowspan="2">
 	<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >

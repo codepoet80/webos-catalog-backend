@@ -8,12 +8,27 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-12254772-3');
 </script>
 
 <?php
 $config = include('WebService/config.php');
+
+function repositionArrayElement(array &$array, $value, int $order): void
+{
+	$array_count = 0;
+	$a = 0;
+	foreach ($array as $array_value) {
+		if ($array_value == $value)
+		{
+			$a = $array_count;
+		}
+		$array_count++;
+	}
+	$p1 = array_splice($array, $a, 1);
+	$p2 = array_splice($array, 0, $order);
+	$array = array_merge($p2, $p1, $array);
+}
 
 //Get the category list
 $category_path = "http://" . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false";
@@ -55,6 +70,8 @@ if (isset($app_response))
 <div class="museumMaster" style="margin-left:1.3em;">
 	<div class="categoryMenu">
 		<?php
+			repositionArrayElement($category_list, "Revisionist History", 1);
+			repositionArrayElement($category_list, "Curator's Choice", 1);
 			foreach ($category_list as $array_key) {
 				$catname = $array_key;
 				$catcount = $category_master["appCount"][$array_key];
@@ -93,8 +110,8 @@ if (isset($app_response))
 		else
 		{
 			?>
-			<p align='middle' style='margin-top:60px'><img src='webos-apps.png'></p>
-			<p align='middle'><i>Choose a category to view apps, or...</i></p>
+			<p align='middle' style='margin-top:50px;'><img src='webos-apps.png'></p>
+			<p align='middle' style='margin-bottom:30px;'><i>Choose a category to view apps, or...</i></p>
 			<form action="" method="get">
 				<div style="margin-left:auto;margin-right:auto;text-align:center;">
 				<input type="text" id="txtSearch" name="search" class="search" placeholder="Just type...">

@@ -33,7 +33,7 @@ strong
 {
     width:128px;height:128px;float:right;
     margin-top:10px;margin-right:40px;
-    border-radius: 10%;
+    border-radius: 5px;
 }
 h1 
 {
@@ -74,7 +74,7 @@ li
     height:64px;
     object-fit:cover;
     margin-right: 8px;
-    border-radius: 15%;
+    border-radius: 6px;
 }
 .deviceSupport::after
 {
@@ -161,6 +161,7 @@ h3
     border:2px solid #dbdbdb;
     border-radius: 5px 0px 0px 5px;
     color: rgb(62,11,249);
+    font-size: 16px;
 }
 .search:focus-within
 {
@@ -177,6 +178,7 @@ h3
     background-color:rgb(62,11,249);
     color:#fafafa;
     border-radius: 0px 5px 5px 0px;
+    font-size: 16px;
 }
 .search-button:hover  
 {

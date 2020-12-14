@@ -97,8 +97,8 @@ if (isset($app_response))
 			<p align='middle'><i>Choose a category to view apps, or...</i></p>
 			<form action="" method="get">
 				<div style="margin-left:auto;margin-right:auto;text-align:center;">
-				<input type="text" id="txtSearch" name="search" class="search" placeholder="Search...">
-				<input type="submit" class="search-button" value="Go!">
+				<input type="text" id="txtSearch" name="search" class="search" placeholder="Just type...">
+				<input type="submit" class="search-button" value="Search">
 				</div>
 			</form>
 			<?php

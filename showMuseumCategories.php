@@ -33,7 +33,7 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 	$app_response = json_decode($app_content, true);
 }
 ?>
-<title>webOS App Museum II - Catalog</title>
+<title>webOS App Museum II - Web Catalog</title>
 <link rel="stylesheet" href="webmuseum.css">
 </head>
 <body class="show-museum">
@@ -47,7 +47,10 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 				if ($catname != "All" && $catname != "Missing Apps" && $catcount > 0)
 				{
 					$catencode = (urlencode($array_key));
-					echo ("<a href='showMuseumCategories.php?category={$catencode}&count={$catcount}'>{$catname} - {$catcount}</a><br/>");
+					echo "<span ";
+					if (strtolower($catname) == strtolower($_GET['category']))
+						echo ("class='categorySelected'");
+					echo ("><a href='showMuseumCategories.php?category={$catencode}&count={$catcount}'>{$catname}</a></span> <span class='legal'>({$catcount} Apps)</span><br/>");
 				}
 			}
 		?>
@@ -57,9 +60,14 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 		<?php
 		if (count($app_response["data"]) > 0)
 		{
+			echo("<table cellpadding='5'>");
 			foreach($app_response["data"] as $app) {
-				echo("<a href='showMuseumDetails.php?{$app["id"]}'>{$app["title"]}</a><br/>");
+				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$app["id"]}'><img src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
+				echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$app["id"]}'>{$app["title"]}</a></b><br/>");
+				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
+				echo("</td></tr>");
 			}
+			echo("</table>");
 			include 'footer.php';
 		}
 		else

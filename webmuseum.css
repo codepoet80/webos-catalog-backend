@@ -39,7 +39,7 @@ h1
     font-size:42px;
     padding-top: 18px; margin-bottom:38px;
 }
-td
+.layoutCell
 {
     font-size:18px;
     min-width: 200px; padding-bottom: 18px;
@@ -48,6 +48,13 @@ td
 {
     font-weight:bold;
     vertical-align: top;
+    font-size:18px;
+    min-width: 200px; padding-bottom: 18px;
+}
+.rowDetail
+{
+    vertical-align: top;
+    min-width: 200px; padding-bottom: 24px;
 }
 ul 
 {
@@ -90,20 +97,37 @@ h2
     margin-top: 20px;
     margin-bottom: 0px;
 }
-h2 a {
+h2 a 
+{
     color: black;
     text-decoration: none;
 }
-.categoryMenu {
+.categoryMenu 
+{
     background-color: lightgray;
     color: #FFF;
     width: 220px;
     position: relative;
     margin-top: 20px;
     padding: 10px;
+    line-height: 1.6;
 }
-.categoryMenu a {
-    color:black;
+.categoryMenu a 
+{
+    color:rgb(62,11,249);
+}
+.categorySelected 
+{
+    font-weight: bold;
+}
+.categorySelected a
+{
+    text-decoration: none;
+    color: black;
+}
+.categorySelected :before
+{
+    content: "> ";
 }
 .appsList {
     background-color: #fff;

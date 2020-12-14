@@ -71,15 +71,15 @@ $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . s
 	<td rowspan="2">
 	<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >
 </td></tr>
-<tr><td class="rowTitle">Museum ID</td><td><?php echo $found_app["id"] ?></td></tr>
-<tr><td class="rowTitle">Application ID</td><td colspan="2"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
-<tr><td class="rowTitle">Author</td><td colspan="2"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
-<tr><td class="rowTitle">Version</td><td><?php echo $app_detail["version"] ?></td><td></td></tr>
-<tr><td class="rowTitle">Description</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["description"]) ?></td></tr>
-<tr><td class="rowTitle">Version Note</td><td colspan="2"><?php echo str_replace("\r\n", "<br>", $app_detail["versionNote"]) ?></td></tr>
-<tr><td class="rowTitle">Download</td><td colspan="2"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
+<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
+<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
+<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
+<tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
+<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo str_replace("\r\n", "<br>", $app_detail["description"]) ?></td></tr>
+<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo str_replace("\r\n", "<br>", $app_detail["versionNote"]) ?></td></tr>
+<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
 <tr><td class="rowTitle">Device Support</td>
-<td>
+<td class="rowDetail">
 	<ul>
 	<li class="deviceSupport<?php echo $found_app["Pre"] ?>">Pre: 
 	<li class="deviceSupport<?php echo $found_app["Pixi"] ?>">Pixi: 
@@ -92,15 +92,15 @@ $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . s
 <td></td>
 </tr>
 <tr><td class="rowTitle">Screenshots</td>
-<td colspan="2">
+<td colspan="2" class="rowDetail">
 <?php
 foreach ($app_detail["images"] as $value) {
     echo("<a href='" . $imgPath . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $imgPath. $value["thumbnail"] . "' style='width:64px'></a>");
 }
 ?>
 </td></tr>
-<tr><td class="rowTitle">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
-<tr><td class="rowTitle">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
+<tr><td class="rowTitle" class="rowDetail">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
+<tr><td class="rowTitle" class="rowDetail">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
 </table>
 <?php
 include 'footer.php';

@@ -31,7 +31,7 @@ td { padding: 20px;}
 <body>
 <table width=100% height=100% border=0 style="margin-top:-40px">
 <tr>
-<td width=100% height=100% align="center" valign="middle" >
+<td width=100% height=100% align="center" valign="middle" class="layoutCell">
 
 
 <table>
@@ -45,7 +45,7 @@ td { padding: 20px;}
 </tr>
 
 <tr>
-<td valign="top">
+<td valign="top" class="layoutCell">
 <h3>Download for webOS 2.0 Devices</h3>
 <a href="<?php echo $outputObj["downloadURI"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
 <small>
@@ -55,7 +55,7 @@ Need <a href="http://www.webosarchive.com/docs/appstores/#install-webos-app-muse
 </small>
 </td>
 
-<td valign="top">
+<td valign="top" class="layoutCell">
 <h3>Other Ways to view the Museum</h3>
 <p><a href="showMuseumCategories.php">Browse Online by Category</a></p>
 <p>Add feeds to PreWare (for webOS 1.x)</a><br/>

@@ -49,7 +49,7 @@ if ($_GET['category'] != null && $_GET['count'] != null)
 }
 elseif ($_GET['search'] != null)
 {
-	$app_path = "http://" . $config["service_host"] . "/WebService/getSearchResults.php?". $_GET['search'];
+	$app_path = "http://" . $config["service_host"] . "/WebService/getSearchResults.php?". urlencode($_GET['search']);
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);

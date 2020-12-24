@@ -15,7 +15,14 @@ if ($json_a === null) {
 }
 
 $found_id = "null";
-$search_str = $_SERVER["QUERY_STRING"];
+if (isset($_GET["app"]))
+{
+	$search_str = $_GET["app"];
+}
+else
+{
+	$search_str = $_SERVER["QUERY_STRING"];
+}
 $search_str = urldecode(strtolower($search_str));
 
 if ($search_str == "0" ||	//Treat the museum itself differently

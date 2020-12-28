@@ -50,7 +50,7 @@ td { padding: 20px;}
 <a href="<?php echo $outputObj["downloadURI"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
 <small>
 Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
-Need <a href="http://www.webosarchive.com/docs/appstores/#install-webos-app-museum-ii">help installing</a>?<br>
+Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>
 <br>
 </small>
 </td>

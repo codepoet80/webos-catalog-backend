@@ -1,7 +1,7 @@
 <html>
 <head>
 <link rel="shortcut icon" href="favicon.ico">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
+<meta name="viewport" content="width=760, initial-scale=0.6">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
 <script>

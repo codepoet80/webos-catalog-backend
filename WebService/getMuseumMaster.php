@@ -211,7 +211,7 @@
 		$_count = $count;
 	}
 	
-	$top = $_page * $_count;
+	$top = (int)$_page * (int)$_count;
 	if (!is_null($_index)) {
 		$top   = $_index;
 		if (!$_random) {
@@ -261,7 +261,7 @@
 			$lastChar = "";
 			$biggerThanZ = false;
 			
-			$bottom = $top+$_count;
+			$bottom = (int)$top+(int)$_count;
 			$temp   = array();
 
 			for ($i = $top; $i<($bottom); $i++) {

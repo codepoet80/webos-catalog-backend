@@ -1,7 +1,7 @@
 <html>
 <head>
 <link rel="shortcut icon" href="favicon.ico">
-<meta name="viewport" content="width=550, initial-scale=1.2">
+<meta name="viewport" content="width=300, initial-scale=0.6">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
 <script>
@@ -47,7 +47,7 @@ td { padding: 20px;}
 
 <tr>
 <td valign="top" class="layoutCell">
-<h3>Download for webOS 2.0 Devices</h3>
+<h3>Download for webOS 2.0+ Devices</h3>
 <a href="<?php echo $outputObj["downloadURI"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
 <small>
 Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
@@ -68,7 +68,7 @@ Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<
 
 <tr>
 <td colspan="2" align="center">
-Got some IPKs archived that you want to contribute?<br>Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
+Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
 
 </td>
 </tr>

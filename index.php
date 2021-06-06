@@ -59,10 +59,8 @@ Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<
 <td valign="top" class="layoutCell">
 <h3>Other Ways to view the Museum</h3>
 <p><a href="showMuseum.php">Browse Catalog Online</a></p>
-<p>Add feeds to PreWare (for webOS 1.x)</a><br/>
-<small><i>Coming Soon</i></small></p>
-<p>Download Entire Archive<br/>
-<small><i>Coming Soon</i></small></p>
+<p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUjstJqs-gn6SazN_n0g?e=xS4j8F">Download Entire Archive</a><br/>
+<small><i>32.2GB: 3819 apps cataloged, 1606 un-cataloged</i></small></p>
 </td>
 </tr>
 

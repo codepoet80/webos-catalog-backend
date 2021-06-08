@@ -54,7 +54,7 @@ fclose($meta_file);
 $app_detail = json_decode($content, true);
 
 //Improve some strings for web output
-$imgPath = "http://" . $config["package_host"] . "/AppImages/";
+$imgPath = "http://" . $config["image_host"] . "/";
 $app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
 $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
 $app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);

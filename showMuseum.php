@@ -29,6 +29,8 @@ function repositionArrayElement(array &$array, $value, int $order): void
 	$p2 = array_splice($array, 0, $order);
 	$array = array_merge($p2, $p1, $array);
 }
+//Figure out where images are
+$imgPath = "http://" . $config["image_host"] . "/";
 
 //Get the category list
 $category_path = "http://" . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false";
@@ -99,7 +101,7 @@ if (isset($app_response))
 			}
 			echo("<table cellpadding='5'>");
 			foreach($app_response["data"] as $app) {
-				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='http://packages.webosarchive.com/AppImages/{$app["appIcon"]}' border='0'></a>");
+				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$imgPath}{$app["appIcon"]}' border='0'></a>");
 				echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
 				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
 				echo("</td></tr>");

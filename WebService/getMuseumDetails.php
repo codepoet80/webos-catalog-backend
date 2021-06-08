@@ -21,9 +21,11 @@
 	}
 	
 	function getDetailData($host, $myIdx) {
+
 		if (!isset($myIdx)) {$myIdx = $id;}
-		//Get the JSON file over HTTP to this same server, to allow Virtual Directory support
-		$mypath = "http://{$host}/AppMetadata/{$myIdx}.json";
+		//Get the JSON file over HTTP to the configured server,
+		$mypath = "http://{$host}/{$myIdx}.json";
+
 		$myfile  = fopen($mypath, "rb");
 		$content = stream_get_contents($myfile);
 		fclose($myfile);
@@ -39,6 +41,6 @@
 
 	if(!isset($_REQUEST['appIds']) || $_REQUEST['appIds'] !== "random") {
 		$config = include('config.php');
-		getDetailData($config["package_host"], $id);
+		getDetailData($config["metadata_host"], $id);
 	}
 ?>

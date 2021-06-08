@@ -45,7 +45,7 @@ if ($found_id == "null") {
 	echo("ERROR: No matching app found");
 	die;
 }
-$meta_path = "http://" . $config["package_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
+$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
 
 $meta_file = fopen($meta_path, "rb");
 $content = stream_get_contents($meta_file);

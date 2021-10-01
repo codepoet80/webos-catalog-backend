@@ -11,15 +11,8 @@
   gtag('config', 'UA-12254772-3');
 </script>
 <script>
-//Copy Link (for webOS clients only)
-function copyLink(link) {
-  var textArea = document.createElement("textarea");
-  textArea.value = text;
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textArea);
+function showHelp() {
+	Mojo.Controller.errorDialog("this is a test");
 }
 </script>
 
@@ -109,7 +102,7 @@ if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserA
 ?>
 	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 		<a href="<?php echo $plainURI ?>">Preware Link</a> 
-		<a href="javascript:copyLink('<?php echo $plainURI ?>')">Copy</a>
+		<a href="javascript:showHelp()">(Help)</a>
 	</td></tr>
 <?php
 } else {

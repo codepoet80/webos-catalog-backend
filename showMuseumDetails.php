@@ -12,7 +12,7 @@
 </script>
 <script>
 function showHelp() {
-	Mojo.Controller.errorDialog("this is a test");
+	alert("Most webOS Devices should use the App Museum II to browse and install from the catalog. Older devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
 }
 </script>
 

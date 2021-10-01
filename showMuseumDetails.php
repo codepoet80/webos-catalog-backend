@@ -124,6 +124,7 @@ if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserA
 </td>
 <td></td>
 </tr>
+<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>"><?php echo $app_detail["supportURL"] ?></a></td></tr>
 <tr><td class="rowTitle">Screenshots</td>
 <td colspan="2" class="rowDetail">
 <?php

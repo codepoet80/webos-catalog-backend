@@ -102,7 +102,7 @@ if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserA
 ?>
 	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 		<a href="<?php echo $plainURI ?>">Preware Link</a> 
-		&nbsp;&nbsp;<a href="javascript:showHelp()">(?)</a>
+		&nbsp;<a href="javascript:showHelp()">(?)</a>
 	</td></tr>
 <?php
 } else {

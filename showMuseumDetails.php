@@ -93,7 +93,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
 <?php
 $browserAsString = $_SERVER['HTTP_USER_AGENT'];
-if (strstr($browserAsString, "webos")) {
+if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 ?>
 	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="<?php echo $downloadURI ?>">Plain Link</a></td></tr>
 <?php

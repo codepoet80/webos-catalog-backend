@@ -62,8 +62,8 @@ $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNot
 
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
-$downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
-$downloadURI = base64_encode($downloadURI);
+$plainURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+$downloadURI = base64_encode($plainURI);
 $splitPos = rand(1, strlen($downloadURI) - 2);
 $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);
 
@@ -95,7 +95,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 $browserAsString = $_SERVER['HTTP_USER_AGENT'];
 if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 ?>
-	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="<?php echo $downloadURI ?>">Plain Link</a></td></tr>
+	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="<?php echo $plainURI ?>">PreWare Link</a></td></tr>
 <?php
 } else {
 ?>

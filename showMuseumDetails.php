@@ -12,7 +12,7 @@
 </script>
 <script>
 function showHelp() {
-	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog.\r\nOlder devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
+	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
 }
 </script>
 
@@ -102,7 +102,7 @@ if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserA
 ?>
 	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 		<a href="<?php echo $plainURI ?>">Preware Link</a> 
-		<a href="javascript:showHelp()">(Help)</a>
+		&nbsp;&nbsp;<a href="javascript:showHelp()">(?)</a>
 	</td></tr>
 <?php
 } else {

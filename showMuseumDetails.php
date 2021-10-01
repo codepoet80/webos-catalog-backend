@@ -10,6 +10,18 @@
   gtag('js', new Date());
   gtag('config', 'UA-12254772-3');
 </script>
+<script>
+//Copy Link (for webOS clients only)
+function copyLink(link) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textArea);
+}
+</script>
 
 <?php
 $config = include('WebService/config.php');
@@ -95,7 +107,10 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 $browserAsString = $_SERVER['HTTP_USER_AGENT'];
 if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 ?>
-	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="<?php echo $plainURI ?>">PreWare Link</a></td></tr>
+	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
+		<a href="<?php echo $plainURI ?>">Preware Link</a> 
+		<a href="javascript:copyLink('<?php echo $plainURI ?>')">Copy</a>
+	</td></tr>
 <?php
 } else {
 ?>

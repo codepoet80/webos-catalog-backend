@@ -90,7 +90,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
 <tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"] ?></td></tr>
 <tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"] ?></td></tr>
-<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo ($app_detail["appSize"]/1024) ?>KB</td></tr>
+<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?>KB</td></tr>
 <?php
 $browserAsString = $_SERVER['HTTP_USER_AGENT'];
 if (strstr($browserAsString, "webos")) {

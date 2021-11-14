@@ -17,12 +17,13 @@ if ($json_a === null) {
 //Try to prepare the logs
 $logpath = null;
 try {
+	clearstatcache();
 	$logpath = "logs";
 	if (!file_exists($logpath)) {
 		mkdir($logpath, 0755, true);
 	}
 	$logpath = $logpath . "/updatecheck.log";
-	if (!file_exists(logpath)) {
+	if (!file_exists(trim(getcwd().$logpath))) {
 		$logfile = fopen($logpath, "w");
 		fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
 		fclose($logfile);
@@ -100,18 +101,15 @@ else
 		die;
 	}
 	$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
-	//echo ("Load file: " . $meta_path);
 
 	$meta_file = fopen($meta_path, "rb");
 	$content = stream_get_contents($meta_file);
 	fclose($meta_file);
-	//echo ($content);
 
 	$json_m = json_decode($content, true);
 	$lastVersionNote = $json_m["versionNote"];
 	$lastVersionNote = explode("\r\n", $lastVersionNote);
 	$lastVersionNote =  $lastVersionNote[count($lastVersionNote)-1];
-	//echo ($lastVersionNote);
 
 	$outputObj = array (
 		"version" => $json_m["version"],

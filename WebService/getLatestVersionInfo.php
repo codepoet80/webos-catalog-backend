@@ -121,10 +121,8 @@ echo (json_encode($outputObj));
 function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	if (file_exists($logpath)) {
 		$timestamp = date('Y/m/d H:i:s');
-
-		$logfile = fopen($logpath, "w");
-		fwrite($logfile, $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo);
-		fclose($logfile);
+		$logdata = $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo;
+		file_put_contents($logpath, $logdata);
 		return $logpath;
 	} else {
 		return null;

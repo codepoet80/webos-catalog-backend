@@ -35,8 +35,8 @@ try {
 
 //Determine what the request was
 $found_id = "null";
-$devicedata = "";
-$clientinfo = "";
+$devicedata = $_SERVER['HTTP_USER_AGENT'];
+$clientinfo = $_SERVER['HTTP_HOST'];
 if (isset($_GET["app"]))
 {
 	$search_str = $_GET["app"];

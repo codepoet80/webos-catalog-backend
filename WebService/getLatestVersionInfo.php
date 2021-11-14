@@ -119,7 +119,7 @@ echo (json_encode($outputObj));
 //echo json_encode($outputObj, JSON_UNESCAPED_SLASHES);
 
 function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
-	if (file_exists(logpath)) {
+	if (file_exists($logpath)) {
 		$timestamp = date('Y/m/d H:i:s');
 
 		$logfile = fopen($logpath, "w");

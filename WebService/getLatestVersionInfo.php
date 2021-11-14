@@ -19,12 +19,12 @@ $logpath = null;
 try {
 	clearstatcache();
 	$logpath = "logs";
-	if (!file_exists($logpath)) {
-		mkdir($logpath, 0755, true);
-	}
-	$logpath = $logpath . "/updatecheck.log";
-        $logfile=fopen($logpath, "x");	//this is stupid because it generates a server error, but file_exists isn't working
-        if ($logfile) {
+        if (!file_exists($logpath)) {
+                mkdir($logpath, 0774, true);
+        }
+        $logpath = getcwd() . "/" . $logpath . "/updatecheck.log";
+        if (!file_exists($logpath)) {
+                $logfile=fopen($logpath, "x");
                 fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
                 fclose($logfile);
         }

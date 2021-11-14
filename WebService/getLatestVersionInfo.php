@@ -24,7 +24,7 @@ try {
 	$logpath = $logpath . "/updatecheck.log";
 	if (!file_exists(logpath)) {
 		$logfile = fopen($logpath, "w");
-		fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo");
+		fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
 		fclose($logfile);
 	}
 } catch (exception $e) {
@@ -121,8 +121,8 @@ echo (json_encode($outputObj));
 function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	if (file_exists($logpath)) {
 		$timestamp = date('Y/m/d H:i:s');
-		$logdata = $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo;
-		file_put_contents($logpath, $logdata);
+		$logdata = $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo . PHP_EOL;
+		file_put_contents($logpath, $logdata, FILE_APPEND);
 		return $logpath;
 	} else {
 		return null;

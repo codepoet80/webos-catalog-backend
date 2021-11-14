@@ -23,11 +23,11 @@ try {
 		mkdir($logpath, 0755, true);
 	}
 	$logpath = $logpath . "/updatecheck.log";
-	if (!file_exists(trim(getcwd().$logpath))) {
-		$logfile = fopen($logpath, "w");
-		fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
-		fclose($logfile);
-	}
+        $logfile=fopen($logpath, "x");	//this is stupid because it generates a server error, but file_exists isn't working
+        if ($logfile) {
+                fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
+                fclose($logfile);
+        }
 } catch (exception $e) {
 	//Fail with web server log and move on
 	unset($logpath);

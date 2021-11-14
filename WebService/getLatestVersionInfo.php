@@ -14,10 +14,38 @@ if ($json_a === null) {
 	die;
 }
 
+//Try to prepare the logs
+$logpath = false;
+try {
+	$logpath = "logs";
+	if (!file_exists($logpath)) {
+		mkdir($logpath, 0755, true);
+	}
+	$logpath = $logpath . "/updatecheck.log";
+	if (!file_exists(logpath)) {
+		$logfile = fopen($logpath, "w");
+		fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo");
+		fclose($logfile);
+	}
+} catch (exception $e) {
+	//Fail with web server log and move on
+	$logpath = false;
+	error_log("Non-fatal error: " . $_SERVER [‘SCRIPT_NAME’] . " was unable to create a log file. Check directory permissions for web server user.", 0);
+}
+
+//Determine what the request was
 $found_id = "null";
+$devicedata = "";
+$clientinfo = "";
 if (isset($_GET["app"]))
 {
 	$search_str = $_GET["app"];
+	if (isset($_GET["device"])) {
+		$devicedata = $_GET["device"];
+	}
+	if (isset($_GET["client"])) {
+		$clientinfo = $_GET["client"];
+	}
 }
 else
 {
@@ -33,6 +61,7 @@ if ($search_str == "0" ||	//Treat the museum itself differently
  $search_str == "appmuseum2" ||
  $search_str == "appmuseumii")
 {
+	if ($logpath) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
 	$found_id = "0";
 	$meta_path = "http://" . $config["service_host"] . "/appinfo.json";
 	//echo ("Load file: " . $meta_path);
@@ -52,13 +81,14 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 }
 else
 {
+	if ($logpath) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
+
 	foreach ($json_a as $this_app => $app_a) {
 		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
 			//echo ("Found app: " . $app_a["title"] . "-" . $app_a["id"] . ".json<br>");
 			$found_id = $app_a["id"];
 		}
 	}
-
 
 	if ($found_id == "null") {
 		echo("ERROR: No matching app found");
@@ -87,4 +117,38 @@ else
 }
 echo (json_encode($outputObj));
 //echo json_encode($outputObj, JSON_UNESCAPED_SLASHES);
+
+function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
+	if (file_exists(logpath)) {
+		$timestamp = date('Y/m/d H:i:s');
+
+		$logfile = fopen($logpath, "w");
+		fwrite($logfile, $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo);
+		fclose($logfile);
+		return $logpath;
+	} else {
+		return false;
+	}
+}
+
+function getVisitorIP()
+{
+  $serverIP = explode('.',$_SERVER['SERVER_ADDR']);
+  $localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
+  $isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||
+    ($serverIP[0] == $localIP[0]) && 
+    (in_array($serverIP[0],array('192') ) ||
+    in_array($serverIP[0],array('127') ) ) 
+  );
+  if($isLocal)
+  {
+      $visitorIP = gethostbyname($config['hostname']);
+  }
+  else 
+  {
+      $visitorIP = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']); 
+  }
+
+  return $visitorIP;
+}
 ?>

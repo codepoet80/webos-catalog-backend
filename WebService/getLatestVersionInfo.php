@@ -15,7 +15,7 @@ if ($json_a === null) {
 }
 
 //Try to prepare the logs
-$logpath = false;
+$logpath = null;
 try {
 	$logpath = "logs";
 	if (!file_exists($logpath)) {
@@ -29,7 +29,7 @@ try {
 	}
 } catch (exception $e) {
 	//Fail with web server log and move on
-	$logpath = false;
+	unset($logpath);
 	error_log("Non-fatal error: " . $_SERVER [‘SCRIPT_NAME’] . " was unable to create a log file. Check directory permissions for web server user.", 0);
 }
 
@@ -61,7 +61,7 @@ if ($search_str == "0" ||	//Treat the museum itself differently
  $search_str == "appmuseum2" ||
  $search_str == "appmuseumii")
 {
-	if ($logpath) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
+	if (isset($logpath)) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
 	$found_id = "0";
 	$meta_path = "http://" . $config["service_host"] . "/appinfo.json";
 	//echo ("Load file: " . $meta_path);
@@ -81,7 +81,7 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 }
 else
 {
-	if ($logpath) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
+	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
 
 	foreach ($json_a as $this_app => $app_a) {
 		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
@@ -127,7 +127,7 @@ function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 		fclose($logfile);
 		return $logpath;
 	} else {
-		return false;
+		return null;
 	}
 }
 

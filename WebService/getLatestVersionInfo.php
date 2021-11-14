@@ -40,7 +40,7 @@ if (isset($_COOKIE['clientid'])) {
 	$clientinfo = $_COOKIE['clientid'];
 } else {
 	$clientinfo = uniqid();
-	setcookie ('clientid', $clientinfo, 2147483647);	
+	setcookie ('clientid', $clientinfo, 2147483647);
 }
 if (isset($_GET["app"]))
 {
@@ -121,7 +121,6 @@ else
 	);
 }
 echo (json_encode($outputObj));
-//echo json_encode($outputObj, JSON_UNESCAPED_SLASHES);
 
 function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	if (file_exists($logpath)) {
@@ -136,22 +135,21 @@ function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 
 function getVisitorIP()
 {
-  $serverIP = explode('.',$_SERVER['SERVER_ADDR']);
-  $localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
-  $isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||
-    ($serverIP[0] == $localIP[0]) && 
-    (in_array($serverIP[0],array('192') ) ||
-    in_array($serverIP[0],array('127') ) ) 
-  );
-  if($isLocal)
-  {
-      $visitorIP = gethostbyname($config['hostname']);
-  }
-  else 
-  {
-      $visitorIP = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']); 
-  }
-
-  return $visitorIP;
+	$serverIP = explode('.',$_SERVER['SERVER_ADDR']);
+	$localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
+	$isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||
+		    ($serverIP[0] == $localIP[0]) && 
+		    (in_array($serverIP[0],array('192') ) ||
+		    in_array($serverIP[0],array('127') ) ) 
+	);
+	if($isLocal)
+	{
+		$visitorIP = gethostbyname($config['hostname']);
+	}
+	else 
+	{
+		$visitorIP = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']); 
+	}
+	return $visitorIP;
 }
 ?>

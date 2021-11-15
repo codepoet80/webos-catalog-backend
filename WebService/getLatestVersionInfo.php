@@ -36,7 +36,7 @@ try {
 
 //Determine what the request was
 $found_id = "null";
-$devicedata = $_SERVER['HTTP_USER_AGENT'];
+$devicedata = str_replace(",", " ", $_SERVER['HTTP_USER_AGENT']);
 if (isset($_COOKIE['clientid'])) {
 	$clientinfo = $_COOKIE['clientid'];
 } else {

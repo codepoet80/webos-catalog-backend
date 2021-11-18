@@ -126,7 +126,7 @@ if (isset($app_response))
 	</div>
 </div>
 <?php
-if (isset($app_response)["data"]) && count($app_response["data"]) == 0)
+if (isset($app_response["data"]) && count($app_response["data"]) == 0)
 {
 	include 'footer.php';
 }

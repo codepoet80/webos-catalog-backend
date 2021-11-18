@@ -10,6 +10,11 @@
   gtag('js', new Date());
   gtag('config', 'UA-12254772-3');
 </script>
+<script>
+function showHelp() {
+	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
+}
+</script>
 
 <?php
 $config = include('WebService/config.php');
@@ -62,8 +67,8 @@ $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNot
 
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
-$downloadURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
-$downloadURI = base64_encode($downloadURI);
+$plainURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+$downloadURI = base64_encode($plainURI);
 $splitPos = rand(1, strlen($downloadURI) - 2);
 $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);
 
@@ -96,6 +101,15 @@ $browserAsString = $_SERVER['HTTP_USER_AGENT'];
 if (strstr($browserAsString, "webos")) {
 ?>
 	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Plain Link</a></td></tr>
+<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
+<?php
+$browserAsString = $_SERVER['HTTP_USER_AGENT'];
+if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
+?>
+	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
+		<a href="<?php echo $plainURI ?>">Preware Link</a> 
+		&nbsp;<a href="javascript:showHelp()">(?)</a>
+	</td></tr>
 <?php
 } else {
 ?>
@@ -116,6 +130,7 @@ if (strstr($browserAsString, "webos")) {
 </td>
 <td></td>
 </tr>
+<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>"><?php echo $app_detail["supportURL"] ?></a></td></tr>
 <tr><td class="rowTitle">Screenshots</td>
 <td colspan="2" class="rowDetail">
 <?php

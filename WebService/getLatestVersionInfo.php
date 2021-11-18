@@ -14,10 +14,44 @@ if ($json_a === null) {
 	die;
 }
 
+//Try to prepare the logs
+$logpath = null;
+try {
+	clearstatcache();
+	$logpath = "logs";
+        if (!file_exists($logpath)) {
+                mkdir($logpath, 0774, true);
+        }
+        $logpath = getcwd() . "/" . $logpath . "/updatecheck.log";
+        if (!file_exists($logpath)) {
+                $logfile=fopen($logpath, "x");
+                fwrite($logfile, "TimeStamp,IP,AppChecked,DeviceData,ClientInfo".PHP_EOL);
+                fclose($logfile);
+        }
+} catch (exception $e) {
+	//Fail with web server log and move on
+	unset($logpath);
+	error_log("Non-fatal error: " . $_SERVER [‘SCRIPT_NAME’] . " was unable to create a log file. Check directory permissions for web server user.", 0);
+}
+
+//Determine what the request was
 $found_id = "null";
+$devicedata = str_replace(",", " ", $_SERVER['HTTP_USER_AGENT']);
+if (isset($_COOKIE['clientid'])) {
+	$clientinfo = $_COOKIE['clientid'];
+} else {
+	$clientinfo = uniqid();
+	setcookie ('clientid', $clientinfo, 2147483647);
+}
 if (isset($_GET["app"]))
 {
 	$search_str = $_GET["app"];
+	if (isset($_GET["device"])) {
+		$devicedata = $_GET["device"];
+	}
+	if (isset($_GET["client"])) {
+		$clientinfo = $_GET["client"];
+	}
 }
 else
 {
@@ -33,6 +67,7 @@ if ($search_str == "0" ||	//Treat the museum itself differently
  $search_str == "appmuseum2" ||
  $search_str == "appmuseumii")
 {
+	if (isset($logpath)) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
 	$found_id = "0";
 	$meta_path = "http://" . $config["service_host"] . "/appinfo.json";
 	//echo ("Load file: " . $meta_path);
@@ -52,6 +87,8 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 }
 else
 {
+	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
+
 	foreach ($json_a as $this_app => $app_a) {
 		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
 			//echo ("Found app: " . $app_a["title"] . "-" . $app_a["id"] . ".json<br>");
@@ -59,24 +96,20 @@ else
 		}
 	}
 
-
 	if ($found_id == "null") {
 		echo("ERROR: No matching app found");
 		die;
 	}
 	$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
-	//echo ("Load file: " . $meta_path);
 
 	$meta_file = fopen($meta_path, "rb");
 	$content = stream_get_contents($meta_file);
 	fclose($meta_file);
-	//echo ($content);
 
 	$json_m = json_decode($content, true);
 	$lastVersionNote = $json_m["versionNote"];
 	$lastVersionNote = explode("\r\n", $lastVersionNote);
 	$lastVersionNote =  $lastVersionNote[count($lastVersionNote)-1];
-	//echo ($lastVersionNote);
 
 	$outputObj = array (
 		"version" => $json_m["version"],
@@ -86,5 +119,35 @@ else
 	);
 }
 echo (json_encode($outputObj));
-//echo json_encode($outputObj, JSON_UNESCAPED_SLASHES);
+
+function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
+	if (file_exists($logpath)) {
+		$timestamp = date('Y/m/d H:i:s');
+		$logdata = $timestamp . "," . getVisitorIP() . "," . $appname . "," . $devicedata . "," . $clientinfo . PHP_EOL;
+		file_put_contents($logpath, $logdata, FILE_APPEND);
+		return $logpath;
+	} else {
+		return null;
+	}
+}
+
+function getVisitorIP()
+{
+	$serverIP = explode('.',$_SERVER['SERVER_ADDR']);
+	$localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
+	$isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||
+		    ($serverIP[0] == $localIP[0]) && 
+		    (in_array($serverIP[0],array('192') ) ||
+		    in_array($serverIP[0],array('127') ) ) 
+	);
+	if($isLocal)
+	{
+		$visitorIP = gethostbyname($config['hostname']);
+	}
+	else 
+	{
+		$visitorIP = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']); 
+	}
+	return $visitorIP;
+}
 ?>

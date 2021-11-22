@@ -29,7 +29,7 @@ $outputObj = json_decode($content, true);
 td { padding: 20px;}
 </style>
 </head>
-<body>
+<body class="content">
 <?php include('menu.php'); ?>
 <table width=100% height=90% border=0 style="margin-top:0px">
 <tr>

@@ -1,9 +1,10 @@
-body, *
+.content
 {
     font-family:Arial, Helvetica, sans-serif; 
 }
 .show-museum 
 {
+    font-family:Arial, Helvetica, sans-serif; 
     max-width: 840px;
     margin-left: 2em;
     margin-top: 2em;
@@ -57,14 +58,14 @@ h1
     vertical-align: top;
     min-width: 200px; padding-bottom: 24px;
 }
-ul 
+.rowDetail ul 
 {
     margin-bottom: 0px;
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
 }
-li
+.rowDetail li
 {
     font-size:18px;
 }

@@ -31,7 +31,7 @@ td { padding: 20px;}
 </head>
 <body>
 <?php include('menu.php'); ?>
-<table width=100% height=100% border=0 style="margin-top:-40px">
+<table width=100% height=100% border=0 style="margin-top:-80px">
 <tr>
 <td width=100% height=100% align="center" valign="middle" class="layoutCell">
 

@@ -93,7 +93,7 @@ if (isset($app_response))
 
 		<div class="appsList">
 			<?php
-			if (count($app_response["data"]) > 0)
+			if (isset($app_response) && count($app_response["data"]) > 0)
 			{
 				if (isset($_GET['category'])) {
 					echo ("<h3>Category: " . $_GET['category'] . "</h3>");

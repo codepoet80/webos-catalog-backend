@@ -44,7 +44,10 @@ h1
 .layoutCell
 {
     font-size:18px;
-    min-width: 200px; padding-bottom: 18px;
+    text-align:left;
+    margin-left: 30px;
+    margin-right: 10px;
+    padding-bottom: 18px;
 }
 .rowTitle
 {

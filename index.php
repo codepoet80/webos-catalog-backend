@@ -31,47 +31,36 @@ td { padding: 20px;}
 </head>
 <body class="content">
 <?php include('menu.php'); ?>
-<table width=100% height=90% border=0 style="margin-top:0px">
-<tr>
-<td width=100% height=100% align="center" valign="middle" class="layoutCell">
+<p align='middle' style='margin-top:50px;'>
 
-<table>
-<tr>
-<td colspan="2" align="center">
-<img src="icon.png"><br/>
-&nbsp;<br/>
-<strong>webOS App Museum II</strong><br/>
-<small>A project of <a href="http://www.webosarchive.com">webOSArchive.com</a></small><br>
-</td>
-</tr>
+  <img src="icon.png"><br/>
+  &nbsp;<br/>
+  <strong>webOS App Museum II</strong><br/>
+  <small>A project of <a href="http://www.webosarchive.com">webOSArchive.com</a></small><br>
 
-<tr>
-<td valign="top" class="layoutCell">
-<h3>Download for webOS 2.0+ Devices</h3>
-<a href="<?php echo $outputObj["downloadURI"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
-<small>
-Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
-Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>
-<br>
-</small>
-</td>
+</p>
 
-<td valign="top" class="layoutCell">
-<h3>Other Ways to view the Museum</h3>
-<p><a href="showMuseum.php">Browse Catalog Online</a></p>
-<p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUjstJqs-gn6SazN_n0g?e=xS4j8F">Download Entire Archive</a><br/>
-<small><i>32.2GB: 3819 apps cataloged, 1606 un-cataloged</i></small></p>
-</td>
-</tr>
+<div id="wrapper" style="text-align: center; padding-top:28px;">
+  <div id="col1" style="display: inline-block; vertical-align: top;" class="layoutCell">
+    <h3>Download for webOS 2.0+ Devices</h3>
+    <a href="<?php echo $outputObj["downloadURI"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
+    <small>
+    Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
+    Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>
+    <br>
+    </small>
+  </div>
 
-<tr>
-<td colspan="2" align="center">
-Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
+  <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
+    <h3>Other Ways to view the Museum</h3>
+    <p><a href="showMuseum.php">Browse Catalog Online</a></p>
+    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUjstJqs-gn6SazN_n0g?e=xS4j8F">Download Entire Archive</a><br/>
+    <small><i>32.2GB: 3819 apps cataloged, 1606 un-cataloged</i></small></p>
+  </div>
+</div>
 
-</td>
-</tr>
-</td>
-</tr>
-</table>
+<p align='middle'>
+  Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
+</p>
 </body>
 </html>

@@ -81,69 +81,72 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <link rel="stylesheet" href="webmuseum.css">
 <script src="downloadHelper.php"></script>
 </head>
-<body class="show-museum" style="margin-right:1.3em">
-<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
-<br>
-<table border="0" style="margin-left:1.3em;">
-<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
-	<td rowspan="2">
-	<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >
-</td></tr>
-<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
-<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
-<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
-<tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
-<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"] ?></td></tr>
-<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"] ?></td></tr>
-<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
-<?php
-$browserAsString = $_SERVER['HTTP_USER_AGENT'];
-if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
-?>
-	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
-		<a href="<?php echo $plainURI ?>">Preware Link</a> 
-		&nbsp;<a href="javascript:showHelp()">(?)</a>
+<body>
+<?php include("menu.php") ?>
+<div class="show-museum"  style="margin-right:1.3em">
+	<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
+	<br>
+	<table border="0" style="margin-left:1.3em;">
+	<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
+		<td rowspan="2">
+		<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >
 	</td></tr>
-<?php
-} else {
-?>
-	<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
-<?php
-}
-?>
+	<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
+	<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
+	<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
+	<tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
+	<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"] ?></td></tr>
+	<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"] ?></td></tr>
+	<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
+	<?php
+	$browserAsString = $_SERVER['HTTP_USER_AGENT'];
+	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
+	?>
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
+			<a href="<?php echo $plainURI ?>">Preware Link</a> 
+			&nbsp;<a href="javascript:showHelp()">(?)</a>
+		</td></tr>
+	<?php
+	} else {
+	?>
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
+	<?php
+	}
+	?>
 
-<tr><td class="rowTitle">Device Support</td>
-<td class="rowDetail">
-	<ul>
-	<li class="deviceSupport<?php echo $found_app["Pre"] ?>">Pre: 
-	<li class="deviceSupport<?php echo $found_app["Pixi"] ?>">Pixi: 
-	<li class="deviceSupport<?php echo $found_app["Pre2"] ?>">Pre2: 
-	<li class="deviceSupport<?php echo $found_app["Veer"] ?>">Veer:
-	<li class="deviceSupport<?php echo $found_app["Pre3"] ?>">Pre3:
-	<li class="deviceSupport<?php echo $found_app["TouchPad"] ?>">TouchPad:
-	</ul>
-</td>
-<td></td>
-</tr>
-<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>"><?php echo $app_detail["supportURL"] ?></a></td></tr>
-<tr><td class="rowTitle">Screenshots</td>
-<td colspan="2" class="rowDetail">
-<?php
-foreach ($app_detail["images"] as $value) {
-    echo("<a href='" . $imgPath . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $imgPath. $value["thumbnail"] . "' style='width:64px'></a>");
-}
-?>
-</td></tr>
-<tr><td class="rowTitle" class="rowDetail">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
-<tr><td class="rowTitle" class="rowDetail">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
-</table>
-<?php
-include 'footer.php';
-?>
-<div style="display:none;margin-top:18px">
-<?php
-//echo (json_encode($app_a) . "<br><br>");
-//echo $content;
-?>
+	<tr><td class="rowTitle">Device Support</td>
+	<td class="rowDetail">
+		<ul>
+		<li class="deviceSupport<?php echo $found_app["Pre"] ?>">Pre: 
+		<li class="deviceSupport<?php echo $found_app["Pixi"] ?>">Pixi: 
+		<li class="deviceSupport<?php echo $found_app["Pre2"] ?>">Pre2: 
+		<li class="deviceSupport<?php echo $found_app["Veer"] ?>">Veer:
+		<li class="deviceSupport<?php echo $found_app["Pre3"] ?>">Pre3:
+		<li class="deviceSupport<?php echo $found_app["TouchPad"] ?>">TouchPad:
+		</ul>
+	</td>
+	<td></td>
+	</tr>
+	<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>"><?php echo $app_detail["supportURL"] ?></a></td></tr>
+	<tr><td class="rowTitle">Screenshots</td>
+	<td colspan="2" class="rowDetail">
+	<?php
+	foreach ($app_detail["images"] as $value) {
+		echo("<a href='" . $imgPath . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $imgPath. $value["thumbnail"] . "' style='width:64px'></a>");
+	}
+	?>
+	</td></tr>
+	<tr><td class="rowTitle" class="rowDetail">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
+	<tr><td class="rowTitle" class="rowDetail">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
+	</table>
+	<?php
+	include 'footer.php';
+	?>
+	<div style="display:none;margin-top:18px">
+	<?php
+	//echo (json_encode($app_a) . "<br><br>");
+	//echo $content;
+	?>
+</div>
 </body>
 </html>

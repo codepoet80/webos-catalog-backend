@@ -82,7 +82,6 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <script src="downloadHelper.php"></script>
 </head>
 <body class="show-museum" style="margin-right:1.3em">
-<?php include('menu.php'); ?>
 <h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 <br>
 <table border="0" style="margin-left:1.3em;">

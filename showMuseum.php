@@ -68,7 +68,6 @@ if (isset($app_response))
 <link rel="stylesheet" href="webmuseum.css">
 </head>
 <body class="show-museum" style="margin-right:1.3em" onload="document.getElementById('txtSearch').focus()">
-<?php include('menu.php'); ?>
 <h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 <div class="museumMaster" style="margin-left:1.3em;">
 	<div class="categoryMenu">

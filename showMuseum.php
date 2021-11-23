@@ -14,7 +14,7 @@
 <?php
 $config = include('WebService/config.php');
 
-function repositionArrayElement($array, $value, $order)
+function repositionArrayElement(array &$array, $value, int $order): void
 {
 	$array_count = 0;
 	$a = 0;

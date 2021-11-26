@@ -50,7 +50,14 @@ if ($found_id == "null") {
 	echo("ERROR: No matching app found");
 	die;
 }
-$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
+
+//Figure out what protocol the client wanted
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $protocol = "https://";
+else
+    $protocol = "http://";
+
+$meta_path = $protocol . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
 
 $meta_file = fopen($meta_path, "rb");
 $content = stream_get_contents($meta_file);
@@ -59,7 +66,7 @@ fclose($meta_file);
 $app_detail = json_decode($content, true);
 
 //Improve some strings for web output
-$imgPath = "http://" . $config["image_host"] . "/";
+$imgPath = $protocol . $config["image_host"] . "/";
 $app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
 $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
 $app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
@@ -67,7 +74,7 @@ $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNot
 
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
-$plainURI = "http://" . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+$plainURI = $protocol . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
 $downloadURI = base64_encode($plainURI);
 $splitPos = rand(1, strlen($downloadURI) - 2);
 $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);

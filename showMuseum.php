@@ -29,11 +29,18 @@ function repositionArrayElement(array &$array, $value, int $order): void
 	$p2 = array_splice($array, 0, $order);
 	$array = array_merge($p2, $p1, $array);
 }
+
+//Figure out what protocol the client wanted
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $protocol = "https://";
+else
+    $protocol = "http://";
+
 //Figure out where images are
-$imgPath = "http://" . $config["image_host"] . "/";
+$imgPath = $protocol . $config["image_host"] . "/";
 
 //Get the category list
-$category_path = "http://" . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false";
+$category_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false";
 $category_file = fopen($category_path, "rb");
 $category_content = stream_get_contents($category_file);
 fclose($category_file);
@@ -44,7 +51,7 @@ sort($category_list);
 //Get the app list if there is a category query
 if (isset($_GET['category']) && isset($_GET['count']))
 {
-	$app_path = "http://" . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&blacklist=&key=webapp_". uniqid() ."&hide_missing=false";
+	$app_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&blacklist=&key=webapp_". uniqid() ."&hide_missing=false";
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);
@@ -52,7 +59,7 @@ if (isset($_GET['category']) && isset($_GET['count']))
 }
 elseif (isset($_GET['search']))
 {
-	$app_path = "http://" . $config["service_host"] . "/WebService/getSearchResults.php?". urlencode($_GET['search']);
+	$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?". urlencode($_GET['search']);
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);

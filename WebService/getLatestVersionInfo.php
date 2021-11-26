@@ -34,14 +34,17 @@ try {
 	error_log("Non-fatal error: " . $_SERVER [‘SCRIPT_NAME’] . " was unable to create a log file. Check directory permissions for web server user.", 0);
 }
 
-//Determine what the request was
 $found_id = "null";
+//Determine what the request was
 $devicedata = str_replace(",", " ", $_SERVER['HTTP_USER_AGENT']);
-if (isset($_COOKIE['clientid'])) {
+if (isset($_COOKIE["clientid"])) {
 	$clientinfo = $_COOKIE['clientid'];
 } else {
 	$clientinfo = uniqid();
-	setcookie ('clientid', $clientinfo, 2147483647);
+	setcookie ("clientid", $clientinfo, 2147483647);
+}
+if (isset($_GET["clientid"])) {
+	$clientinfo = $_GET["clientid"];
 }
 if (isset($_GET["app"]))
 {

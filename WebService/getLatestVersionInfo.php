@@ -90,8 +90,8 @@ else
 {
 	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
 	//strip out version number if present
-	$search_str = explode("\/", $search_str);
-	$search_str = end($search_str);
+	$name_parts = explode("/", $search_str);
+	$search_str = end($name_parts);
 
 	foreach ($json_a as $this_app => $app_a) {
 		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {

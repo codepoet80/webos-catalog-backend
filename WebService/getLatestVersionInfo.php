@@ -91,6 +91,9 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 else
 {
 	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
+	//strip out version number if present
+	$search_str = explode("/", $search_str);
+	$search_str = end($search_str);
 
 	foreach ($json_a as $this_app => $app_a) {
 		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
@@ -134,8 +137,7 @@ function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	}
 }
 
-function getVisitorIP()
-{
+function getVisitorIP() {
 	$serverIP = explode('.',$_SERVER['SERVER_ADDR']);
 	$localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
 	$isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||

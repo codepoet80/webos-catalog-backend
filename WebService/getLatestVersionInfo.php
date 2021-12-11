@@ -4,14 +4,12 @@ header('Content-Type: application/json');
 
 $string = file_get_contents("../extantAppData.json");
 if ($string === false) {
-	echo ("ERROR: Could not find catalog file");
-	die;
+	die("{\"error\": \"Could not find catalog file\"}");
 }
 
 $json_a = json_decode($string, true);
 if ($json_a === null) {
-	echo ("ERROR: Could not parse catalog file");
-	die;
+	die("{\"error\": \"Could not parse catalog file\"}");
 }
 
 //Try to prepare the logs
@@ -92,7 +90,7 @@ else
 {
 	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
 	//strip out version number if present
-	$search_str = explode("/", $search_str);
+	$search_str = explode("\/", $search_str);
 	$search_str = end($search_str);
 
 	foreach ($json_a as $this_app => $app_a) {
@@ -103,7 +101,7 @@ else
 	}
 
 	if ($found_id == "null") {
-		echo("ERROR: No matching app found");
+		echo "{\"error\": \"No matching app found!\"}";
 		die;
 	}
 	$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;

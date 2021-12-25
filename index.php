@@ -54,8 +54,8 @@ td { padding: 20px;}
   <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Other Ways to view the Museum</h3>
     <p><a href="showMuseum.php">Browse Catalog Online</a></p>
-    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUjstJqs-gn6SazN_n0g?e=xS4j8F">Download Entire Archive</a><br/>
-    <small><i>32.2GB: 3819 apps cataloged, 1606 un-cataloged</i></small></p>
+    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUju14rSHmAJYXIdSjMA?e=QRM2f8">Download Entire Archive</a><br/>
+    <small><i>34.1GB: 3822 apps cataloged, 1606 un-cataloged</i></small></p>
   </div>
 </div>
 

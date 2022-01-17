@@ -121,7 +121,7 @@
 	$_ignoreBL    = false; if (isset($_REQUEST['ignore_blacklist'])) 	{$_ignoreBL = $_REQUEST['ignore_blacklist'];}
 	$_hideMissing = false; if (isset($_REQUEST['hide_missing'])) 		{$_hideMissing = $_REQUEST['hide_missing'];}
 	$_showOnlyMis = false; if (isset($_REQUEST['show_only_missing'])) 	{$_showOnlyMis = $_REQUEST['show_only_missing'];}
-	$_adult		  = false; if (isset($_REQUEST['adult']))				{$_showAdult = $_REQUEST['adult'];}
+	$_adult		  = false; if (isset($_REQUEST['adult']))				{$_adult = $_REQUEST['adult'];}
 	$_onlyLuneOS  = false; if (isset($_REQUEST['onlyLuneOS']))			{$_onlyLuneOS = $_REQUEST['onlyLuneOS'];}
 	
 	if (gettype($_useAppId    === "string")) {$_useAppId    = strtolower($_useAppId)    === "true" ? true : false;}

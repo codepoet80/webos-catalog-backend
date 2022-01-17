@@ -14,6 +14,8 @@
 	 * - ignore blacklist (true or false)
 	 * - hideMissing (true or false)
 	 * - showOnlyMissing (true or false)
+	 * - adult (true or false, default false)
+	 * - onlyLuneOS (true or false)
 	 *
 	 * - useAppId (true or false)
 	 * - appId list (comma-separated)	// only used with 'useAppId' and overwrites everything else
@@ -119,6 +121,8 @@
 	$_ignoreBL    = false; if (isset($_REQUEST['ignore_blacklist'])) 	{$_ignoreBL = $_REQUEST['ignore_blacklist'];}
 	$_hideMissing = false; if (isset($_REQUEST['hide_missing'])) 		{$_hideMissing = $_REQUEST['hide_missing'];}
 	$_showOnlyMis = false; if (isset($_REQUEST['show_only_missing'])) 	{$_showOnlyMis = $_REQUEST['show_only_missing'];}
+	$_adult		  = false; if (isset($_REQUEST['adult']))				{$_showAdult = $_REQUEST['adult'];}
+	$_onlyLuneOS  = false; if (isset($_REQUEST['onlyLuneOS']))			{$_onlyLuneOS = $_REQUEST['onlyLuneOS'];}
 	
 	if (gettype($_useAppId    === "string")) {$_useAppId    = strtolower($_useAppId)    === "true" ? true : false;}
 	if (gettype($_ignoreBL    === "string")) {$_ignoreBL    = strtolower($_ignoreBL)    === "true" ? true : false;}
@@ -165,6 +169,14 @@
 			continue;
 		}
 		if (!$_ignoreBL && $_blacklisted[0] !== "" && in_array($app['vendorId'],$_blacklisted)) {
+			continue;
+		}
+		//Filter out adult apps (unless requested)
+		if (!$_adult && $app['Adult']) {
+			continue;
+		}
+		//Optionally show only LuneOS tested apps
+		if ($_onlyLuneOS && !$app['LuneOS']) {
 			continue;
 		}
 		$validDevice  = ($_device === 'All'   || $app[$_device] === true);

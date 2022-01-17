@@ -55,7 +55,7 @@ td { padding: 20px;}
     <h3>Other Ways to view the Museum</h3>
     <p><a href="showMuseum.php">Browse Catalog Online</a></p>
     <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUju14rSHmAJYXIdSjMA?e=QRM2f8">Download Entire Archive</a><br/>
-    <small><i>34.1GB: 3822 apps cataloged, 1606 un-cataloged</i></small></p>
+    <small><i>34.1 GB: 3822 apps cataloged, 1606 un-cataloged</i></small></p>
   </div>
 </div>
 

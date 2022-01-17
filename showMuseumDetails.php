@@ -130,6 +130,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 		<li class="deviceSupport<?php echo $found_app["Veer"] ?>">Veer:
 		<li class="deviceSupport<?php echo $found_app["Pre3"] ?>">Pre3:
 		<li class="deviceSupport<?php echo $found_app["TouchPad"] ?>">TouchPad:
+		<li class="deviceSupport<?php echo $found_app["LuneOS"] ?>">LuneOS:
 		</ul>
 	</td>
 	<td></td>

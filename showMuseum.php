@@ -41,8 +41,11 @@ $imgPath = $protocol . $config["image_host"] . "/";
 
 //Support for safe search
 $_safe = "on"; 
+if (isset($_COOKIE["safesearch"]))
+	$_safe = $_COOKIE["safesearch"];
 if (isset($_GET['safe'])) {
 	$_safe = $_GET['safe'];
+	setcookie("safesearch", $_GET['safe'], time() + 86400, "/");
 }
 $adult = "";
 if ($_safe != "on")
@@ -106,7 +109,7 @@ if (isset($app_response))
 					{
 						$catencode = (urlencode($array_key));
 						echo "<span ";
-						if (strtolower($catname) == strtolower($_GET['category']))
+						if (isset($_GET['category']) && strtolower($catname) == strtolower($_GET['category']))
 							echo ("class='categorySelected'");
 						echo ("><a href='showMuseum.php?category={$catencode}&count={$catcount}'>{$catname}</a></span> <span class='legal'>({$catcount} Apps)</span><br/>");
 					}

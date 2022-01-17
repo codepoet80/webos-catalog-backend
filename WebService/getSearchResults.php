@@ -26,18 +26,15 @@ foreach ($json_a as $this_app => $app_a) {
 	//Look for matches
 	if (strtolower($app_a["title"]) == $search_str || (strpos(strtolower($app_a["title"]), $search_str) !== false) || $app_a["id"] == $search_str) 
 	{
-		$_useApp = true;
 		//Filter out adult apps (unless requested)
-		if (!$_adult && $app['Adult']) {
-			$_useApp = false;
+		if (!$_adult && $app_a['Adult']) {
+			continue;
 		}
 		//Optionally show only LuneOS tested apps
-		if ($_onlyLuneOS && !$app['LuneOS']) {
-			$_useApp = false;
+		if ($_onlyLuneOS && !$app_a['LuneOS']) {
+			continue;
 		}
-		if ($_useApp) {
-			array_push($results, $app_a);
-		}
+		array_push($results, $app_a);
 	}
 }
 $responseObj->data = $results;

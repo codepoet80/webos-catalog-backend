@@ -16,9 +16,12 @@ if ($json_a === null) {
 
 $search_str = $_SERVER["QUERY_STRING"];
 $search_str = urldecode(strtolower($search_str));
-
-$_adult		  = false; if (isset($_REQUEST['adult']))				{$_adult = $_REQUEST['adult'];}
-$_onlyLuneOS  = false; if (isset($_REQUEST['onlyLuneOS']))			{$_onlyLuneOS = $_REQUEST['onlyLuneOS'];}
+if (isset($_REQUEST["query"]))
+	$search_str = $_REQUEST["query"];
+if (isset($_GET["query"]))
+	$search_str = $_GET["query"];
+$_adult		  = false; if (isset($_GET['adult']))			{$_adult = $_GET['adult'];}
+$_onlyLuneOS  = false; if (isset($_GET['onlyLuneOS']))	{$_onlyLuneOS = $_GET['onlyLuneOS'];}
 
 $results = [];
 //Loop through all apps

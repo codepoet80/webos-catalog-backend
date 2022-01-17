@@ -39,8 +39,17 @@ else
 //Figure out where images are
 $imgPath = $protocol . $config["image_host"] . "/";
 
+//Support for safe search
+$_safe = "on"; 
+if (isset($_GET['safe'])) {
+	$_safe = $_GET['safe'];
+}
+$adult = "";
+if ($_safe != "on")
+	$adult = "&adult=true";
+
 //Get the category list
-$category_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false";
+$category_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false" . $adult;
 $category_file = fopen($category_path, "rb");
 $category_content = stream_get_contents($category_file);
 fclose($category_file);
@@ -51,7 +60,7 @@ sort($category_list);
 //Get the app list if there is a category query
 if (isset($_GET['category']) && isset($_GET['count']))
 {
-	$app_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&blacklist=&key=webapp_". uniqid() ."&hide_missing=false";
+	$app_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&blacklist=&key=webapp_". uniqid() ."&hide_missing=false" . $adult;
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);
@@ -59,7 +68,7 @@ if (isset($_GET['category']) && isset($_GET['count']))
 }
 elseif (isset($_GET['search']))
 {
-	$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?". urlencode($_GET['search']);
+	$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?query=". urlencode($_GET['search']) . $adult;
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);
@@ -73,6 +82,13 @@ if (isset($app_response))
 ?>
 <title>webOS App Museum II - Web Catalog</title>
 <link rel="stylesheet" href="webmuseum.css">
+<script>
+	function changeSearchFilter() {
+		if (document.getElementById("txtSearch").value == "") {
+			document.frmSearch.submit();
+		}
+	}
+</script>
 </head>
 <body onload="document.getElementById('txtSearch').focus()">
 <?php include("menu.php") ?>
@@ -123,10 +139,16 @@ if (isset($app_response))
 				?>
 				<p align='middle' style='margin-top:50px;'><img src='webos-apps.png'></p>
 				<p align='middle' style='margin-bottom:30px;'><i>Choose a category to view apps, or...</i></p>
-				<form action="" method="get">
+				<form action="" id="frmSearch" name="frmSearch" method="get">
 					<div style="margin-left:auto;margin-right:auto;text-align:center;">
 					<input type="text" id="txtSearch" name="search" class="search" placeholder="Just type...">
-					<input type="submit" class="search-button" value="Search">
+					<input type="submit" class="search-button" value="Search"><br/>
+					<br/>
+					Safe Search: 
+					<select id="chkSafe" name="safe" onchange="changeSearchFilter()">
+						<option value="on" <?php if ($_safe == "on") { echo "selected"; }?>>Moderate</option>
+						<option value="off" <?php if ($_safe == "off") { echo "selected"; }?>>Off</option>
+					</select>
 					</div>
 				</form>
 				<?php

@@ -70,7 +70,8 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 {
 	if (isset($logpath)) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
 	$found_id = "0";
-	$meta_path = "http://" . $config["service_host"] . "/appinfo.json";
+	//$meta_path = "http://" . $config["service_host"] . "/appinfo.json";
+	$meta_path = "http://" . $config["metadata_host"] . "/0.json";
 	//echo ("Load file: " . $meta_path);
 
 	$meta_file = fopen($meta_path, "rb");
@@ -83,7 +84,8 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 		"version" => $json_m["version"],
 		"lastModifiedTime" => $json_m["lastModifiedTime"],
 		"versionNote" => $json_m["versionNote"],
-		"downloadURI" => "http://" . $config["service_host"] . "/" . $json_m["id"] . "_" . $json_m["version"] . "_all.ipk",
+		//"downloadURI" => "http://" . $config["service_host"] . "/" . $json_m["id"] . "_" . $json_m["version"] . "_all.ipk",
+		"downloadURI" => "http://" . $config["package_host"] . "/AppPackages/" . $json_m["filename"]
 	);
 }
 else

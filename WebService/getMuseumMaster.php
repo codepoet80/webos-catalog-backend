@@ -145,7 +145,7 @@
 	$extraData = array();
 
 	$useFile = "../extantAppData.json";
-	if (_museumVersion == "0.0.0")	//TODO: could make this a blacklist
+	if ($_museumVersion == "0.0.0")	//TODO: could make this a blacklist
 		$useFile = "../outofdateAppData.json";
 	$myfile = fopen($useFile, "r");
 	$masterdata = json_decode(fread($myfile,filesize($useFile)), true);

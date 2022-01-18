@@ -29,7 +29,7 @@ try {
 } catch (exception $e) {
 	//Fail with web server log and move on
 	unset($logpath);
-	error_log("Non-fatal error: " . $_SERVER [‘SCRIPT_NAME’] . " was unable to create a log file. Check directory permissions for web server user.", 0);
+	error_log("Non-fatal error: " . $_SERVER ['SCRIPT_NAME'] . " was unable to create a log file. Check directory permissions for web server user.", 0);
 }
 
 $found_id = "null";

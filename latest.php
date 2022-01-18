@@ -18,7 +18,7 @@ $attachment_location = $download_path . $outputObj["filename"];
     header("Content-Type: application/octet-stream");
     header("Content-Transfer-Encoding: Binary");
     header("Content-Length:".filesize($attachment_location));
-    header("Content-Disposition: attachment; filename=". $latest);
+    header("Content-Disposition: attachment; filename=". $outputObj["filename"]);
     readfile($attachment_location);
     die();        
 //} else {

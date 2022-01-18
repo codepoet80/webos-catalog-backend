@@ -16,6 +16,7 @@
 	 * - showOnlyMissing (true or false)
 	 * - adult (true or false, default false)
 	 * - onlyLuneOS (true or false)
+	 * - museumVersion (current version or empty if too old)
 	 *
 	 * - useAppId (true or false)
 	 * - appId list (comma-separated)	// only used with 'useAppId' and overwrites everything else
@@ -143,11 +144,11 @@
 
 	$extraData = array();
 
-	if (_museumVersion != "0.0.0.0")	//TODO: could make this a blacklist
-		$myfile  = fopen("../extantAppData.json", "r");
-	else
-		$myfile	 = fopen("../outofdatAppData.json", "r");
-	$masterdata = json_decode(fread($myfile,filesize("../extantAppData.json")), true);
+	$useFile = "../extantAppData.json";
+	if (_museumVersion == "0.0.0")	//TODO: could make this a blacklist
+		$useFile = "../outofdateAppData.json";
+	$myfile = fopen($useFile, "r");
+	$masterdata = json_decode(fread($myfile,filesize($useFile)), true);
 	fclose($myfile);
 	
 	$myfile  = fopen("../missingApps.json", "r");	//TODO: this is unused

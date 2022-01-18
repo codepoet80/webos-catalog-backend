@@ -159,7 +159,6 @@
 							"All"=>0,
 							"Missing Apps"=>0
 							);
-error_log("adult is " . $_adult . " and request was " . $_REQUEST['adult']);
 
 	foreach($masterdata as $key => $app) {
 		if ($_hideMissing  && (isset($missing[$app['id']]) && $missing[$app['id']] == 0)) {

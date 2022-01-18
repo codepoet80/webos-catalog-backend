@@ -172,7 +172,7 @@
 			continue;
 		}
 		//Filter out adult apps (unless requested)
-		if (!$_adult && $app['Adult']) {
+		if ($_adult != true && $app['Adult']) {
 			continue;
 		}
 		//Optionally show only LuneOS tested apps

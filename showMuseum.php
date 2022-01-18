@@ -52,7 +52,7 @@ if ($_safe != "on")
 	$adult = "&adult=true";
 
 //Get the category list
-$category_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&hide_missing=false" . $adult;
+$category_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=All&device=All&category=All&query=&page=0&blacklist=&key=web_categories&museumVersion=web&hide_missing=false" . $adult;
 $category_file = fopen($category_path, "rb");
 $category_content = stream_get_contents($category_file);
 fclose($category_file);
@@ -63,7 +63,7 @@ sort($category_list);
 //Get the app list if there is a category query
 if (isset($_GET['category']) && isset($_GET['count']))
 {
-	$app_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&blacklist=&key=webapp_". uniqid() ."&hide_missing=false" . $adult;
+	$app_path = $protocol . $config["service_host"] . "/WebService/getMuseumMaster.php?count=". $_GET['count'] ."&device=All&category=". urlencode($_GET['category']) ."&query=&page=0&museumVersion=web&blacklist=&key=webapp_". uniqid() ."&hide_missing=false" . $adult;
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);

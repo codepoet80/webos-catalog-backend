@@ -25,16 +25,15 @@ else
     $protocol = "http://";
 
 //Figure out where images are
-$imgPath = $protocol . $config["image_host"] . "/";
+$img_path = $protocol . $config["image_host"] . "/";
 
 //Figure out where metadata is
-$authorPath = $protocol . $config["service_host"] . "/author/";
+$author_path = $protocol . $config["service_host"] . "/author/";
 
 //figure out what they're looking for
 $req = explode('/', $_SERVER['REQUEST_URI']);
 $query = end($req);
 $app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?author=". $query;
-echo $app_path;
 
 //get the results
 $app_file = fopen($app_path, "rb");
@@ -42,17 +41,25 @@ $app_content = stream_get_contents($app_file);
 fclose($app_file);
 $app_response = json_decode($app_content, true);
 
-if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"]))
-{
-	echo $authorPath . isset($app_response["data"][0]['vendorId']) . "json";
-} else {
-	echo "no vendor data<br>";
-	echo isset($app_response) . "<br>";
-	echo isset($app_response["data"]) . "<br>";
-	echo isset($app_response["data"][0]) . "<br>";
-	echo isset($app_response["data"][0]["vendorId"]) . "<br>";
-}
+$author_data = ["author" => mb_convert_case(urldecode($query), MB_CASE_TITLE)];
 
+if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["author"])) {
+	$author_data = [
+		"author" => $app_response["data"][0]["author"]
+	];
+}
+if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
+	$author_path .= $app_response["data"][0]["vendorId"] . "/author.json";
+	//get vendor data (if available)
+	echo $author_path;
+	$app_file = fopen($app_path, "rb");
+	$app_content = stream_get_contents($author_path);
+	fclose($app_file);
+	if ($app_content)
+		$author_data = json_decode($app_content, true);
+}
+echo $authorPath;
+print_r($author_data);
 
 ?>
 <html>
@@ -73,7 +80,7 @@ parse_str($_SERVER["QUERY_STRING"], $query);
 unset($query["app"]);
 $homePath = "showMuseum.php?" . http_build_query($query);
 ?>
-<title><?php echo $query ?> - webOS App Museum II</title>
+<title><?php echo $author_data['author']; ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="../webmuseum.css">
 </head>
 <body>
@@ -81,28 +88,25 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <div class="show-museum" style="margin-right:1.3em">
 	<h2><a href="<?php echo ($homePath); ?>"><img src="../icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
-	<table border="0" style="margin-left:1.3em;">
-		<tr><td colspan="2"><h1><?php echo $query; ?></h1></td>
+	<table border="0" style="margin-left:1.3em; width:100%;">
+		<tr><td colspan="2"><h1><?php echo $author_data['author']; ?></h1></td>
 			<td rowspan="2">
-			<img src="<?php echo $imgPath . $found_app["appIconBig"]?>" class="appIcon" >
+			<img src="../icon.png" class="appIcon" >
 		</td></tr>
-		<?php
-			echo("<table cellpadding='5'>");
-			foreach($app_response["data"] as $app) {
-				echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$imgPath}{$app["appIcon"]}' border='0'></a>");
-				echo("<td width='100%' style='padding-left: 14px'><b><a href='../showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
-				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
-				echo("</td></tr>");
-			}
-			echo("</table>");
-		?>
-		<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
-			<td rowspan="2">
-			<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >
-		</td></tr>
-		<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
 	</table>
+	<?php
+		echo("<table cellpadding='5'>");
+		foreach($app_response["data"] as $app) {
+			echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$img_path}{$app["appIcon"]}' border='0'></a>");
+			echo("<td width='100%' style='padding-left: 14px'><b><a href='../showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
+			echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
+			echo("</td></tr>");
+		}
+		echo("</table>");
+	?>
+	<!--
 	<?php print_r($app_response); ?>
+	-->
 	<?php
 	include '../footer.php';
 	?>

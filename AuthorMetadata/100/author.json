@@ -1,20 +1,18 @@
-[
-    {
-        "id": 100,
-        "author": "Jon Wise",
-        "summary": "webOS SimpleChat is a lightweight message board for the webOS community, hosted by webOS Archive -- or by you! More reliable than the forums, with more history that IRC. Join in now!",
-        "favicon": "1005777/icon-256.png",
-        "icon": "1005777/icon-256.png",
-        "iconBig": "1005777/icon-256.png",
-        "vendorId": 100,
-        "Pixi": true,
-        "Pre": true,
-        "Pre2": true,
-        "Pre3": true,
-        "Veer": true,
-        "TouchPad": true,
-        "touchpad_exclusive": false,
-        "LuneOS": false,
-        "Adult": false
-    }
-]
+{
+    "id": 100,
+    "author": "Jon Wise",
+    "summary": "webOS SimpleChat is a lightweight message board for the webOS community, hosted by webOS Archive -- or by you! More reliable than the forums, with more history that IRC. Join in now!",
+    "favicon": "1005777/icon-256.png",
+    "icon": "1005777/icon-256.png",
+    "iconBig": "1005777/icon-256.png",
+    "vendorId": 100,
+    "Pixi": true,
+    "Pre": true,
+    "Pre2": true,
+    "Pre3": true,
+    "Veer": true,
+    "TouchPad": true,
+    "touchpad_exclusive": false,
+    "LuneOS": false,
+    "Adult": false
+}

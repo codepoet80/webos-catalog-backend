@@ -51,13 +51,13 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"] . "/author.json";
 	//get vendor data (if available)
-	echo "load from path: " . $author_path;
-	$app_file = fopen($app_path, "rb");
-	$app_content = stream_get_contents($author_path);
-	echo $app_content;
-	fclose($app_file);
-	if ($app_content)
-		$author_data = json_decode($app_content, true);
+	echo "load from path: " . $author_path . "<br>";
+	$author_file = fopen($author_path, "rb");
+	$author_content = stream_get_contents($author_file);
+	echo "content: " . $author_content . "<br>";
+	fclose($author_file);
+//	if (isset($author_content))
+//		$author_data = json_decode($author_content[0], true);
 }
 echo $authorPath;
 print_r($author_data);

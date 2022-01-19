@@ -10,6 +10,10 @@ else
 //figure out what they're looking for
 $req = explode('/', $_SERVER['REQUEST_URI']);
 $query = end($req);
+$dest_page = $protocol. $config["service_host"];
+$dest_page .= "/showMuseum.php?search=" . $query;
+header("Location: $dest_page");
+die();
 $app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?app=". $query;
 
 //get the results

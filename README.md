@@ -14,6 +14,8 @@ https://keystoneit.wordpress.com/2007/02/19/making-apache-case-insensitive/
 You'll also need mb_internal_encoding:
 https://stackoverflow.com/questions/1216274/unable-to-call-the-built-in-mb-internal-encoding-method
 
+Some features require mod_rewrite in Apache.
+
 Use the WebService/config.php to point to the subdomains that provide the requisite parts (metadata and app packages)
 
 ## What is This?

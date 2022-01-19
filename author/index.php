@@ -28,7 +28,7 @@ else
 $img_path = $protocol . $config["image_host"] . "/";
 
 //Figure out where metadata is
-$author_path = $protocol . $config["service_host"] . "/author/";
+$author_path = $protocol . $config["service_host"] . "/AuthorMetadata/";
 
 //figure out what they're looking for
 $req = explode('/', $_SERVER['REQUEST_URI']);
@@ -51,9 +51,10 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"] . "/author.json";
 	//get vendor data (if available)
-	echo $author_path;
+	echo "load from path: " . $author_path;
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($author_path);
+	echo $app_content;
 	fclose($app_file);
 	if ($app_content)
 		$author_data = json_decode($app_content, true);

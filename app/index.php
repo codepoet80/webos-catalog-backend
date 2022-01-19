@@ -19,9 +19,12 @@ fclose($app_file);
 $app_response = json_decode($app_content, true);
 
 //send them to result if exact match, or search page if not
+$dest_page = $protocol. $config["service_host"];
 if (isset($app_response) && isset($app_response['data'][0]) && count($app_response['data']) == 1) {
-    echo $protocol. $config["service_host"] . "/showMuseumDetails.php?app=" . $app_response['data'][0]['id'];
+    $dest_page .= "/showMuseumDetails.php?app=" . $app_response['data'][0]['id'];
 } else {
-    echo $protocol. $config["service_host"] . "/showMuseum.php?search=" . $query;
+    $dest_page .= "/showMuseum.php?search=" . $query;
 }
+//echo $dest_page;
+header("Location: $dest_page");
 ?>

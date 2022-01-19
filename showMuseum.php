@@ -71,7 +71,7 @@ if (isset($_GET['category']) && isset($_GET['count']))
 }
 elseif (isset($_GET['search']))
 {
-	$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?query=". urlencode($_GET['search']) . $adult;
+	$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?app=". urlencode($_GET['search']) . $adult;
 	$app_file = fopen($app_path, "rb");
 	$app_content = stream_get_contents($app_file);
 	fclose($app_file);

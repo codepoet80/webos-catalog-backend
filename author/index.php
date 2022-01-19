@@ -51,17 +51,12 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"] . "/author.json";
 	//get vendor data (if available)
-	echo "load from path: " . $author_path . "<br>";
 	$author_file = fopen($author_path, "rb");
 	$author_content = stream_get_contents($author_file);
-	echo "content: " . $author_content . "<br>";
 	fclose($author_file);
-//	if (isset($author_content))
-//		$author_data = json_decode($author_content[0], true);
+	if (isset($author_content))
+		$author_data = json_decode($author_content, true);
 }
-echo $authorPath;
-print_r($author_data);
-
 ?>
 <html>
 <head>
@@ -89,8 +84,16 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <div class="show-museum" style="margin-right:1.3em">
 	<h2><a href="<?php echo ($homePath); ?>"><img src="../icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
-	<table border="0" style="margin-left:1.3em; width:100%;">
-		<tr><td colspan="2"><h1><?php echo $author_data['author']; ?></h1></td>
+	<!--
+	<?php
+	print_r($author_data);
+	?>
+	-->
+	<table border="0" style="margin-left:1.3em; width:100%; margin-bottom: 40px;">
+		<tr><td colspan="2">
+				<h1><?php echo $author_data['author']; ?></h1>
+				info about author
+			</td>
 			<td rowspan="2">
 			<img src="../icon.png" class="appIcon" >
 		</td></tr>

@@ -71,20 +71,8 @@ if ($search_str == "0" ||	//Treat the museum itself differently
 	if (isset($logpath)) { $logpath = write_log_data($logpath, "app museum 2", $devicedata, $clientinfo); }
 	$found_id = "0";
 	$meta_path = "http://" . $config["metadata_host"] . "/0.json";
-
-	$meta_file = fopen($meta_path, "rb");
-	$content = stream_get_contents($meta_file);
-	fclose($meta_file);
-
-	$json_m = json_decode($content, true);
-	$outputObj = array (
-		"version" => $json_m["version"],
-		"lastModifiedTime" => $json_m["lastModifiedTime"],
-		"versionNote" => $json_m["versionNote"],
-		"downloadURI" => "http://" . $config["package_host"] . "/AppPackages/" . $json_m["filename"]
-	);
 }
-else
+else	//Any other app
 {
 	if (isset($logpath)) { $logpath = write_log_data($logpath, $search_str, $devicedata, $clientinfo); }
 	//strip out version number if present
@@ -103,24 +91,27 @@ else
 		die;
 	}
 	$meta_path = "http://" . $config["service_host"] . "/WebService/getMuseumDetails.php?id=" . $found_id;
+}
 
+if (isset($meta_path)) {
 	$meta_file = fopen($meta_path, "rb");
 	$content = stream_get_contents($meta_file);
 	fclose($meta_file);
 
 	$json_m = json_decode($content, true);
-	$lastVersionNote = $json_m["versionNote"];
-	$lastVersionNote = explode("\r\n", $lastVersionNote);
-	$lastVersionNote =  $lastVersionNote[count($lastVersionNote)-1];
-
 	$outputObj = array (
 		"version" => $json_m["version"],
-		"versionNote" => $lastVersionNote,
+		"versionNote" => get_last_version_note($json_m["versionNote"]),
 		"lastModifiedTime" => $json_m["lastModifiedTime"],
 		"downloadURI" => "http://" . $config["package_host"] . '/AppPackages/' . $json_m["filename"],
 	);
 }
 echo (json_encode($outputObj));
+
+function get_last_version_note($versionNote){
+	$lastVersionNote = explode("\r\n", $versionNote);
+	return end($lastVersionNote);
+}
 
 function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	if (file_exists($logpath)) {

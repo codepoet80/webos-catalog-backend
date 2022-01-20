@@ -102,7 +102,7 @@ unset($query["app"]);
 $homePath = "showMuseum.php?" . http_build_query($query);
 ?>
 <title><?php echo $author_data['author']; ?> - webOS App Museum II</title>
-<link rel="stylesheet" href="../webmuseum.css">
+<link rel="stylesheet" href="<?php echo $protocol . $config["service_host"]; ?>/webmuseum.css">
 </head>
 <body>
 <?php include("../menu.php") ?>

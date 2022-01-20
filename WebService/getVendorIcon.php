@@ -26,7 +26,6 @@
 		array_shift($myUrl) ;
 	}
 	$myUrl    = implode(".", $myUrl);
-	print_r ($icons);
 
 	foreach($icons as $icn) {
 		$re = '/sizes="?\'?(\d*)/';

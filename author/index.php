@@ -107,7 +107,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <body>
 <?php include("../menu.php") ?>
 <div class="show-museum" style="margin-right:1.3em">
-	<h2><a href="<?php echo ($homePath); ?>"><img src="../icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
+	<h2><a href="<?php echo ($homePath); ?>"><img src="<?php echo $protocol . $config["service_host"]; ?>/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
 	<!--
 	<?php
@@ -122,7 +122,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 				<?php
 					//Social icons by Shawn Rubel
 					foreach($author_data['socialLinks'] as $social) {
-						echo "<a href='" . $social . "'>" . render_social($social) . "</a> ";
+						echo "<a href='" . $social . "'>" . render_social($social, $protocol . $config["service_host"]) . "</a> ";
 					}
 				?>
 			</td>

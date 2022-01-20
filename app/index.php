@@ -11,10 +11,7 @@ else
 $req = explode('/', $_SERVER['REQUEST_URI']);
 $query = end($req);
 $dest_page = $protocol. $config["service_host"];
-$dest_page .= "/showMuseum.php?search=" . $query;
-header("Location: $dest_page");
-die();
-$app_path = $protocol . $config["service_host"] . "/WebService/getSearchResults.php?app=". $query;
+$app_path = $dest_page . "/WebService/getSearchResults.php?app=". $query;
 
 //get the results
 $app_file = fopen($app_path, "rb");
@@ -30,6 +27,6 @@ if (isset($app_response) && isset($app_response['data'][0]) && count($app_respon
 } else {
     $dest_page .= "/showMuseum.php?search=" . $query;
 }
-echo $dest_page;
-//header("Location: $dest_page");
+//echo $dest_page;
+header("Location: $dest_page");
 ?>

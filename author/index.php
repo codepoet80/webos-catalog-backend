@@ -99,7 +99,7 @@ include('../common.php');
 //Figure out where to go back to
 parse_str($_SERVER["QUERY_STRING"], $query);
 unset($query["app"]);
-$homePath = "showMuseum.php?" . http_build_query($query);
+$homePath = $protocol . $config["service_host"]. "/showMuseum.php";
 ?>
 <title><?php echo $author_data['author']; ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="<?php echo $protocol . $config["service_host"]; ?>/webmuseum.css">

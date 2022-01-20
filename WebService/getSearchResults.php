@@ -50,7 +50,12 @@ foreach ($json_a as $this_app => $app_a) {
 		}
 		array_push($results, $app_a);
 	}
-	if ($search_type == "author" && (strtolower($app_a["author"]) == $search_str || (strpos(strtolower($app_a["author"]), $search_str) !== false))) 
+	if ($search_type == "author" && 
+		(strtolower($app_a["author"]) == $search_str || 
+		(strpos(strtolower($app_a["author"]), $search_str) !== false) ||
+		(str_replace(strtolower(" ", "", $app_a["author"])) == $search_str) || 
+		(strpos(strtolower(str_replace(" ", "", $app_a["author"])), $search_str) !== false)
+	 )) 
 	{
 		
 		//Filter out adult apps (unless requested)

@@ -5,16 +5,16 @@
 		echo "";
 		die();
 	}
-	
+	echo "the url: " . $url . "<br>";
 	$ch  =  curl_init   (); 
-		    curl_setopt ($ch, CURLOPT_URL, $url); 
+		    curl_setopt ($ch, CURLOPT_URL, str_replace($url, " ", "%20")); 
 		    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 20);
 		    curl_setopt ($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		    curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, true);
     $page = curl_exec   ($ch); 
             curl_close  ($ch);   
-
+	echo "the page: " . $page . "<br>";
 	$re   = '/(<link).*?icon.*?(>)/i';
 	preg_match_all($re, $page, $icons, PREG_SET_ORDER, 0);
 	$diff     = 100000;
@@ -24,6 +24,7 @@
 		array_shift($myUrl) ;
 	}
 	$myUrl    = implode(".", $myUrl);
+
 	foreach($icons as $icn) {
 		$re = '/sizes="?\'?(\d*)/';
 		preg_match($re, $icn[0], $size);
@@ -74,6 +75,7 @@
 	if (!isset($bestIcon)) {
 		$bestIcon = $favicon;
 	}
-	
+	echo "best icon: " . $besticon;
+	die();
 	header("Location: $bestIcon", true, 301);
 ?>

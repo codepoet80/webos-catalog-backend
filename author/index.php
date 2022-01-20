@@ -49,12 +49,15 @@ $app_response = json_decode($app_content, true);
 
 //find info about author
 //	from query
-$author_data = ["author" => mb_convert_case(urldecode($query), MB_CASE_TITLE)];
+$author_data = [
+	"author" => mb_convert_case(urldecode($query), MB_CASE_TITLE),
+	"favicon" => "../../favicon.ico",
+	"iconBig" => "../../author.png"
+];
 //	from app results list (better)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["author"])) {
-	$author_data = [
-		"author" => $app_response["data"][0]["author"]
-	];
+	$author_data["author"] = $app_response["data"][0]["author"];
+	echo ("here");
 }
 //	from explicit author file (best)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
@@ -68,6 +71,7 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 		$favicon_path = $author_path . "/" . $author_data['favicon'];
 	}
 }
+print_r($author_data);
 
 if ($favicon_search) {	//return just the favicon
 	if (isset($favicon_path)) {

@@ -6,6 +6,7 @@
 		die();
 	}
 	$url = str_replace(" ", "", $url);
+	$url = str_replace("%20", "", $url);
 
 	$ch  =  curl_init   (); 
 		    curl_setopt ($ch, CURLOPT_URL, $url); 

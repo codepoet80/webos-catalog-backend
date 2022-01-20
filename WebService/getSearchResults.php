@@ -38,7 +38,11 @@ $results = [];
 //Loop through all apps
 foreach ($json_a as $this_app => $app_a) {
 	//Look for matches
-	if ($search_type == "app" && (strtolower($app_a["title"]) == $search_str || (strpos(strtolower($app_a["title"]), $search_str) !== false) || $app_a["id"] == $search_str)) 
+	if ($search_type == "app" && (strtolower($app_a["title"]) == $search_str || 
+		$search_str == $app_a["id"] ||
+		(strpos(strtolower($app_a["title"]), $search_str) !== false) || 
+		(strpos(strtolower(str_replace(" ", "", $app_a["title"])), $search_str) !== false) 
+	  )) 
 	{
 		//Filter out adult apps (unless requested)
 		if (!$_adult && $app_a['Adult']) {

@@ -49,9 +49,9 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 	];
 }
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
-	$author_path .= $app_response["data"][0]["vendorId"] . "/author.json";
+	$author_path .= $app_response["data"][0]["vendorId"];
 	//get vendor data (if available)
-	$author_file = fopen($author_path, "rb");
+	$author_file = fopen($author_path . "/author.json", "rb");
 	$author_content = stream_get_contents($author_file);
 	fclose($author_file);
 	if (isset($author_content))
@@ -60,7 +60,7 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 ?>
 <html>
 <head>
-<link rel="shortcut icon" href="../favicon.ico">
+<link rel="shortcut icon" href="<?php echo $author_path . "/" . $author_data['favicon']; ?>">
 <meta name="viewport" content="width=760, initial-scale=0.6">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
@@ -92,11 +92,13 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<table border="0" style="margin-left:1.3em; width:100%; margin-bottom: 40px;">
 		<tr><td colspan="2">
 				<h1><?php echo $author_data['author']; ?></h1>
-				info about author
+				<p><?php echo $author_data['summary']; ?></p>
+				<p><?php echo $author_data['sponsorMessage']; ?><br><?php echo "<a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>"; ?></p>
 			</td>
-			<td rowspan="2">
-			<img src="../icon.png" class="appIcon" >
-		</td></tr>
+			<td rowspan="2" valign="top">
+				<img src="<?php echo $author_path . "/" . $author_data['iconBig']; ?>" class="appIcon" >
+			</td>
+		</tr>
 	</table>
 	<?php
 		echo("<table cellpadding='5'>");

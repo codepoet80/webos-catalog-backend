@@ -4,7 +4,7 @@
     "summary": "I'm Jon Wise, aka codepoet, and I'm the maintainer of the webOS App Museum II, and developer of a number of recent apps for webOS and LuneOS. All my apps are open source, including any back-end services that support them. Check out my GitHub link below, or hit me up on the Discord server!",
     "favicon": "favicon.ico",
     "icon": "icon.png",
-    "iconBig": "icon-256.png",
+    "iconBig": "iconBig.jpg",
     "sponsorMessage": "Like my apps? Why not buy me a coffee?",
     "sponsorLink": "https://www.buymeacoffee.com/codepoet80",
     "socialLinks": [

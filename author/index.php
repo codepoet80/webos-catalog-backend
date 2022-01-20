@@ -132,7 +132,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 		</tr>
 	</table>
 	<div style="margin-left:20px">
-	<h3>Apps by Jon Wise:</h3>
+	<h3>Apps by <?php echo $author_data["author"] ?>:</h3>
 	<?php
 		echo("<table cellpadding='5'>");
 		foreach($app_response["data"] as $app) {

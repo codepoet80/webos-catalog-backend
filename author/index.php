@@ -57,6 +57,7 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 	if (isset($author_content))
 		$author_data = json_decode($author_content, true);
 }
+include('../common.php');
 ?>
 <html>
 <head>
@@ -94,12 +95,20 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 				<h1><?php echo $author_data['author']; ?></h1>
 				<p><?php echo $author_data['summary']; ?></p>
 				<p><?php echo $author_data['sponsorMessage']; ?><br><?php echo "<a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>"; ?></p>
+				<?php
+					//Social icons by Shawn Rubel
+					foreach($author_data['socialLinks'] as $social) {
+						echo "<a href='" . $social . "'>" . render_social($social) . "</a> ";
+					}
+				?>
 			</td>
 			<td rowspan="2" valign="top">
 				<img src="<?php echo $author_path . "/" . $author_data['iconBig']; ?>" class="appIcon" >
 			</td>
 		</tr>
 	</table>
+	<div style="margin-left:20px">
+	<h3>Apps by Jon Wise:</h3>
 	<?php
 		echo("<table cellpadding='5'>");
 		foreach($app_response["data"] as $app) {
@@ -110,6 +119,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 		}
 		echo("</table>");
 	?>
+	</div>
 	<!--
 	<?php print_r($app_response); ?>
 	-->

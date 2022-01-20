@@ -1,24 +1,24 @@
 <?php
 function render_social($link) {
-	$imgsrc = "/icons/web.png";
+	$imgsrc = "/social/web.png";
 	if (strpos($link, "discord.com") !== false || strpos($link, "webosarchive.com/discord") !== false)
-		$imgsrc = "/icons/discord.png";
+		$imgsrc = "/social/discord.png";
 	if (strpos($link, "facebook.com") !== false)
-		$imgsrc = "/icons/facebook.png";
+		$imgsrc = "/social/facebook.png";
 	if (strpos($link, "github.com") !== false)
-		$imgsrc = "/icons/github.png";
+		$imgsrc = "/social/github.png";
 	if (strpos($link, "instagram.com") !== false)
-		$imgsrc = "/icons/instagram.png";
+		$imgsrc = "/social/instagram.png";
 	if (strpos($link, "linkedin.com") !== false)
-		$imgsrc = "/icons/linkedin.png";
+		$imgsrc = "/social/linkedin.png";
 	if (strpos($link, "reddit.com") !== false)
-		$imgsrc = "/icons/reddit.png";
+		$imgsrc = "/social/reddit.png";
 	if (strpos($link, "snapchat.com") !== false)
-		$imgsrc = "/icons/snapchat.png";
+		$imgsrc = "/social/snapchat.png";
 	if (strpos($link, "twitter.com") !== false)
-		$imgsrc = "/icons/twitter.png";
+		$imgsrc = "/social/twitter.png";
 	if (strpos($link, "youtube.com") !== false)
-		$imgsrc = "/icons/youtube.png";
+		$imgsrc = "/social/youtube.png";
 	return "<img src='" . $imgsrc . "' class='authorSocial'>";
 }
 ?>

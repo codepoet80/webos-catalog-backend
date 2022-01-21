@@ -1,0 +1,7 @@
+# For this subfolder to work, you'll need mod_rewrite enabled, and a .htaccess file something like this...
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /author/index.php [L]

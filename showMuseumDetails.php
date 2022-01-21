@@ -66,7 +66,7 @@ fclose($meta_file);
 $app_detail = json_decode($content, true);
 
 //Improve some strings for web output
-$imgPath = $protocol . $config["image_host"] . "/";
+$img_path = $protocol . $config["image_host"] . "/";
 $app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
 $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
 $app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
@@ -96,7 +96,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<table border="0" style="margin-left:1.3em;">
 	<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
 		<td rowspan="2">
-		<img src="<?php echo $imgPath. $found_app["appIconBig"]?>" class="appIcon" >
+		<img src="<?php echo $img_path. $found_app["appIconBig"]?>" class="appIcon" >
 	</td></tr>
 	<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
 	<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
@@ -109,7 +109,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	$browserAsString = $_SERVER['HTTP_USER_AGENT'];
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 	?>
-		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
+		<tr><td><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 			<a href="<?php echo $plainURI ?>">Preware Link</a> 
 			&nbsp;<a href="javascript:showHelp()">(?)</a>
 		</td></tr>
@@ -140,7 +140,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<td colspan="2" class="rowDetail">
 	<?php
 	foreach ($app_detail["images"] as $value) {
-		echo("<a href='" . $imgPath . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $imgPath. $value["thumbnail"] . "' style='width:64px'></a>");
+		echo("<a href='" . $img_path . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $img_path. $value["thumbnail"] . "' style='width:64px'></a>");
 	}
 	?>
 	</td></tr>

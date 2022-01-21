@@ -35,6 +35,7 @@ strong
     width:128px;height:128px;float:right;
     margin-top:10px;margin-right:40px;
     border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 h1 
 {
@@ -79,6 +80,7 @@ h1
     object-fit:cover;
     margin-right: 8px;
     border-radius: 6px;
+    -webkit-border-radius: 6px;
 }
 .deviceSupport::after
 {
@@ -124,6 +126,7 @@ h3
     line-height: 1.6;
     border: 1px solid darkgray;
     border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 .categoryMenu a 
 {
@@ -164,6 +167,7 @@ h3
     background:lightgray;
     border:2px solid #dbdbdb;
     border-radius: 5px 0px 0px 5px;
+    -webkit-border-radius: 5px 0px 0px 5px;
     color: rgb(62,11,249);
     font-size: 16px;
 }
@@ -182,10 +186,18 @@ h3
     background-color:rgb(62,11,249);
     color:#fafafa;
     border-radius: 0px 5px 5px 0px;
+    -webkit-border-radius: 0px 5px 5px 0px;
     font-size: 16px;
 }
 .search-button:hover  
 {
     background-color:#fafafa;
     color:rgb(62,11,249);
+}
+.authorSocial
+{
+    height: 32px;
+    width: 32px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
 }

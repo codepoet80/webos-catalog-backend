@@ -5,7 +5,9 @@
 		echo "";
 		die();
 	}
-	
+	$url = str_replace(" ", "", $url);
+	$url = str_replace("%20", "", $url);
+
 	$ch  =  curl_init   (); 
 		    curl_setopt ($ch, CURLOPT_URL, $url); 
 		    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -24,6 +26,7 @@
 		array_shift($myUrl) ;
 	}
 	$myUrl    = implode(".", $myUrl);
+
 	foreach($icons as $icn) {
 		$re = '/sizes="?\'?(\d*)/';
 		preg_match($re, $icn[0], $size);
@@ -48,6 +51,7 @@
 					$linker = "";
 				}
 				$bestIcon = $home . $linker . $icon[1];
+
 			}
 		} else {
 			if (strpos($icn[0], ".ico") != false || strpos($icn[0], ".png") != false) {
@@ -74,6 +78,6 @@
 	if (!isset($bestIcon)) {
 		$bestIcon = $favicon;
 	}
-	
+
 	header("Location: $bestIcon", true, 301);
 ?>

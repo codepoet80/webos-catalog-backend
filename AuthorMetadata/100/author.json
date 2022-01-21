@@ -1,7 +1,7 @@
 {
     "vendorId": 100,
-    "author": "Jon Wise",
-    "summary": "I'm Jon Wise, aka codepoet, and I'm the maintainer of the webOS App Museum II, and developer of a number of recent apps for webOS and LuneOS. All my apps are open source, including any back-end services that support them. Check out my GitHub link below, or hit me up on the Discord server!",
+    "author": "codepoet",
+    "summary": "I'm codepoet, aka Jon, and I'm the maintainer of the webOS App Museum II, and developer of a number of recent apps for webOS and LuneOS. All my apps are open source, including any back-end services that support them. Check out my GitHub link below, or hit me up on the Discord server!",
     "favicon": "favicon.ico",
     "icon": "icon.png",
     "iconBig": "iconBig.jpg",
@@ -9,7 +9,6 @@
     "sponsorLink": "https://www.buymeacoffee.com/codepoet80",
     "socialLinks": [
         "https://www.webosarchive.com/discord",
-        "https://www.github.com/codepoet80",
-        "https://www.twitter.com/jonathan_wise"
+        "https://www.github.com/codepoet80"
     ]
 }

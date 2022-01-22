@@ -3,8 +3,8 @@
     "author": "codepoet",
     "summary": "I'm codepoet, aka Jon, and I'm the maintainer of the webOS App Museum II, and developer of a number of recent apps for webOS and LuneOS. All my apps are open source, including any back-end services that support them. Check out my GitHub link below, or hit me up on the Discord server!",
     "favicon": "favicon.ico",
-    "icon": "icon.png",
-    "iconBig": "iconBig.jpg",
+    "icon": "icon.jpg",
+    "iconBig": "iconBig.png",
     "sponsorMessage": "Like my apps? Why not buy me a coffee?",
     "sponsorLink": "https://www.buymeacoffee.com/codepoet80",
     "socialLinks": [

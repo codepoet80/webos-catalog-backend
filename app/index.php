@@ -10,6 +10,7 @@ else
 //figure out what they're looking for
 $req = explode('/', $_SERVER['REQUEST_URI']);
 $query = end($req);
+$query = str_replace("+", "", $query);
 $dest_page = $protocol. $config["service_host"];
 $app_path = $dest_page . "/WebService/getSearchResults.php?app=". $query;
 

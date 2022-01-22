@@ -72,6 +72,10 @@ $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["descriptio
 $app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
 $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
 
+//Make some URLs
+$author_url = "author/" . $found_app["author"];
+$share_url = $protocol . $config["service_host"] . "/app/" . str_replace(" " , "", $found_app["title"]);
+
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
 $plainURI = $protocol . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
@@ -100,16 +104,16 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	</td></tr>
 	<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
 	<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
-	<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $app_detail["homeURL"] . "'>" . $found_app["author"] . "</a>"?></td></tr>
+	<tr><td class="rowTitle">Share Link</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $share_url . "'>" . $share_url . "</a>"?></td></tr>
+	<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $author_url . "'>" . $found_app["author"] . "</a>"?></td></tr>
 	<tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
 	<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"] ?></td></tr>
 	<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"] ?></td></tr>
-	<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
 	<?php
 	$browserAsString = $_SERVER['HTTP_USER_AGENT'];
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 	?>
-		<tr><td><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 			<a href="<?php echo $plainURI ?>">Preware Link</a> 
 			&nbsp;<a href="javascript:showHelp()">(?)</a>
 		</td></tr>
@@ -135,7 +139,6 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	</td>
 	<td></td>
 	</tr>
-	<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>"><?php echo $app_detail["supportURL"] ?></a></td></tr>
 	<tr><td class="rowTitle">Screenshots</td>
 	<td colspan="2" class="rowDetail">
 	<?php
@@ -144,6 +147,9 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	}
 	?>
 	</td></tr>
+	<tr><td class="rowTitle">Home Page</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["homeURL"] ?>" target="_blank"><?php echo $app_detail["homeURL"] ?></a></td></tr>
+	<tr><td class="rowTitle">Support URL</td><td colspan="2" class="rowDetail"><a href="<?php echo $app_detail["supportURL"] ?>" target="_blank"><?php echo $app_detail["supportURL"] ?></a></td></tr>
+	<tr><td class="rowTitle">File Size</td><td colspan="2" class="rowDetail"><?php echo round($app_detail["appSize"]/1024,2) ?> KB</td></tr>
 	<tr><td class="rowTitle" class="rowDetail">License</td><td colspan="2"><?php echo $app_detail["licenseURL"] ?></td></tr>
 	<tr><td class="rowTitle" class="rowDetail">Copyright</td><td colspan="2"><?php echo $app_detail["copyright"] ?></td></tr>
 	</table>

@@ -12,7 +12,7 @@
 </script>
 <script>
 function showHelp() {
-	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
+	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can Option+Tap (Orange or White Key) or Long Press (if enabled) on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
 }
 </script>
 
@@ -114,7 +114,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 	?>
 		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
-			<a href="<?php echo $plainURI ?>" onmousedown="countAppDownloads(<?php echo $found_app["id"] ?>)">Preware Link</a> 
+			<a href="<?php echo $plainURI ?>">Preware Link</a> 
 			&nbsp;<a href="javascript:showHelp()">(?)</a>
 		</td></tr>
 	<?php

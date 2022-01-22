@@ -67,7 +67,6 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 	$author_file = fopen($author_path . "/author.json", "rb");
 	$author_content = stream_get_contents($author_file);
 	fclose($author_file);
-	print($author_content);
 	if (isset($author_content) && $author_content != ""){ 
 		$author_data = json_decode($author_content, true);
 		$favicon_path = $author_path . "/" . $author_data['favicon'];

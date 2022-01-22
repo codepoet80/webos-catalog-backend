@@ -114,7 +114,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 	?>
 		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
-			<a href="<?php echo $plainURI ?>" onclick="countAppDownloads(<?php echo $found_app["id"] ?>)">Preware Link</a> 
+			<a href="<?php echo $plainURI ?>" onmousedown="countAppDownloads(<?php echo $found_app["id"] ?>)">Preware Link</a> 
 			&nbsp;<a href="javascript:showHelp()">(?)</a>
 		</td></tr>
 	<?php

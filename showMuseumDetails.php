@@ -114,13 +114,13 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
 	?>
 		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
-			<a href="<?php echo $plainURI ?>">Preware Link</a> 
+			<a href="<?php echo $plainURI ?>" onclick="countAppDownloads(<?php echo $found_app["id"] ?>)">Preware Link</a> 
 			&nbsp;<a href="javascript:showHelp()">(?)</a>
 		</td></tr>
 	<?php
 	} else {
 	?>
-		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>', <?php echo $found_app["id"] ?>);">Direct Link</a></td></tr>
 	<?php
 	}
 	?>

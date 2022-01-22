@@ -36,16 +36,17 @@ if ($json_a === null) {
 }
 
 $found_id = "null";
-$search_str = $_GET["app"];
-$search_str = urldecode(strtolower($search_str));
-$found_app;
-foreach ($json_a as $this_app => $app_a) {
-	if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
-		$found_app = $app_a;
-		$found_id = $found_app["id"];
+if (isset($_GET["app"])) {
+	$search_str = $_GET["app"];
+	$search_str = urldecode(strtolower($search_str));
+	$found_app;
+	foreach ($json_a as $this_app => $app_a) {
+		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
+			$found_app = $app_a;
+			$found_id = $found_app["id"];
+		}
 	}
 }
-
 if ($found_id == "null") {
 	echo("ERROR: No matching app found");
 	die;

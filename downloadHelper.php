@@ -19,7 +19,7 @@ function countAppDownloads(appId) {
         var pageParts = window.location.pathname.split("/");
         var lastPage = pageParts[pageParts.length-1];
         var urlParts = window.location.href.split(lastPage);
-        var url = urlParts[0] + 'WebService/countAppDownload.php?appid=' + appId;;
+        var url = urlParts[0] + 'WebService/countAppDownload.php?appid=' + appId + "&source=web";
         
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);

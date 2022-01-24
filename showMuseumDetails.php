@@ -12,7 +12,7 @@
 </script>
 <script>
 function showHelp() {
-	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can install a Patch from Preware called 'Hold Tap Context Menu' which will allow you to press and hold on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
+	alert("Most webOS Devices should use the App Museum II native app to browse and install from the catalog. Older devices that can't run the Museum can Option+Tap (Orange or White Key) or Long Press (if enabled) on the Preware link on this page and copy it to your clipboard. Then you can use the 'Install Package' menu option in Preware to paste in and install the app using that link.");
 }
 </script>
 
@@ -36,16 +36,17 @@ if ($json_a === null) {
 }
 
 $found_id = "null";
-$search_str = $_GET["app"];
-$search_str = urldecode(strtolower($search_str));
-$found_app;
-foreach ($json_a as $this_app => $app_a) {
-	if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
-		$found_app = $app_a;
-		$found_id = $found_app["id"];
+if (isset($_GET["app"])) {
+	$search_str = $_GET["app"];
+	$search_str = urldecode(strtolower($search_str));
+	$found_app;
+	foreach ($json_a as $this_app => $app_a) {
+		if (strtolower($app_a["title"]) == $search_str || $app_a["id"] == $search_str) {
+			$found_app = $app_a;
+			$found_id = $found_app["id"];
+		}
 	}
 }
-
 if ($found_id == "null") {
 	echo("ERROR: No matching app found");
 	die;
@@ -120,7 +121,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<?php
 	} else {
 	?>
-		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>');">Direct Link</a></td></tr>
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>', <?php echo $found_app["id"] ?>);">Direct Link</a></td></tr>
 	<?php
 	}
 	?>

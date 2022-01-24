@@ -124,7 +124,8 @@ function write_log_data($logpath, $appname, $devicedata, $clientinfo) {
 	}
 }
 
-function getVisitorIP() {
+function getVisitorIP()
+{
 	$serverIP = explode('.',$_SERVER['SERVER_ADDR']);
 	$localIP  = explode('.',$_SERVER['REMOTE_ADDR']);
 	$isLocal = ( ($_SERVER['SERVER_NAME'] == 'localhost') ||
@@ -134,12 +135,33 @@ function getVisitorIP() {
 	);
 	if($isLocal)
 	{
-		$visitorIP = gethostbyname($config['hostname']);
+		$ip = gethostbyname($config['hostname']);
 	}
 	else 
 	{
-		$visitorIP = $_SERVER['HTTP_CLIENT_IP'] ? $_SERVER['HTTP_CLIENT_IP'] : ($_SERVER['HTTP_X_FORWARDED_FOR'] ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']); 
+		// Get real visitor IP behind CloudFlare network
+		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+				$_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+				$_SERVER['HTTP_CLIENT_IP'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+		}
+		$client  = @$_SERVER['HTTP_CLIENT_IP'];
+		$forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+		$remote  = $_SERVER['REMOTE_ADDR'];
+
+		if(filter_var($client, FILTER_VALIDATE_IP))
+		{
+			$ip = $client;
+		}
+		elseif(filter_var($forward, FILTER_VALIDATE_IP))
+		{
+			$ip = $forward;
+		}
+		else
+		{
+			$ip = $remote;
+		}
 	}
-	return $visitorIP;
+
+    return $ip;
 }
 ?>

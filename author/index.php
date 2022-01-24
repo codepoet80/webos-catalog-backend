@@ -54,10 +54,12 @@ $author_data = [
 	"favicon" => "../../favicon.ico",
 	"iconBig" => "../../author.png"
 ];
+
 //	from app results list (better)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["author"])) {
 	$author_data["author"] = $app_response["data"][0]["author"];
 }
+
 //	from explicit author file (best)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"];
@@ -65,7 +67,7 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 	$author_file = fopen($author_path . "/author.json", "rb");
 	$author_content = stream_get_contents($author_file);
 	fclose($author_file);
-	if (isset($author_content)){ 
+	if (isset($author_content) && $author_content != ""){ 
 		$author_data = json_decode($author_content, true);
 		$favicon_path = $author_path . "/" . $author_data['favicon'];
 	}
@@ -109,13 +111,9 @@ $homePath = $protocol . $config["service_host"]. "";
 <div class="show-museum" style="margin-right:1.3em">
 	<h2><a href="<?php echo ($homePath); ?>"><img src="<?php echo $protocol . $config["service_host"]; ?>/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
-	<!--
-	<?php
-	print_r($author_data);
-	?>
-	-->
 	<table border="0" style="margin-left:1.3em; width:100%; margin-bottom: 40px;">
-		<tr><td colspan="2">
+		<tr>
+			<td colspan="2">
 				<h1><?php echo $author_data['author']; ?></h1>
 				<p><?php echo $author_data['summary']; ?></p>
 				<p><?php echo $author_data['sponsorMessage']; ?><br><?php echo "<a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>"; ?></p>
@@ -127,7 +125,7 @@ $homePath = $protocol . $config["service_host"]. "";
 				?>
 			</td>
 			<td rowspan="2" valign="top">
-				<img src="<?php echo $author_path . "/" . $author_data['iconBig']; ?>" class="appIcon" >
+				<img src="<?php echo $author_path . "/" . $author_data['iconBig']; ?>" class="appIcon" onerror="this.onerror=null; this.src='../author.png';" >
 			</td>
 		</tr>
 	</table>

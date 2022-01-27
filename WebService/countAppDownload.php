@@ -22,8 +22,10 @@ if (isset($_GET["appid"]) && $_GET["appid"] != "") {
 
     if (file_exists($logpath)) {
         $source = "app";
-        if (isset($_GET["source"]) && $_GET["source"] != "")
+        if (isset($_GET["source"]) && $_GET["source"] != "") {
             $source = urldecode($_GET["source"]);
+            $source = str_replace(",", " ", $source);
+        }
         $timestamp = date('Y/m/d H:i:s');
         $logdata = $timestamp . "," . $_GET["appid"] . "," . $source . PHP_EOL;
         file_put_contents($logpath, $logdata, FILE_APPEND);

@@ -24,7 +24,7 @@ if (isset($_GET["appid"]) && $_GET["appid"] != "") {
         $source = "app";
         if (isset($_GET["source"]) && $_GET["source"] != "") {
             $source = urldecode($_GET["source"]);
-            $source = str_replace(",", " ", $source);
+            $source = str_replace(",", "", $source);
         }
         $timestamp = date('Y/m/d H:i:s');
         $logdata = $timestamp . "," . $_GET["appid"] . "," . $source . PHP_EOL;

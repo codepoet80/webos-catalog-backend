@@ -93,7 +93,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 <link rel="stylesheet" href="webmuseum.css">
 <script src="downloadHelper.php"></script>
 </head>
-<body>
+<body onload="populateLink()">
 <?php include("menu.php") ?>
 <div class="show-museum" style="margin-right:1.3em">
 	<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
@@ -121,7 +121,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<?php
 	} else {
 	?>
-		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail"><a href="javascript:getLink('<?php echo $downloadURI ?>', <?php echo $found_app["id"] ?>);">Direct Link</a></td></tr>
+		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail" id="tdDownloadLink" title="Download Link Decoded by Javascript" data-encoded-uri="<?php echo $downloadURI ?>" data-app-id="<?php echo $found_app["id"] ?>"><i>Requires Javascript</i></td></tr>
 	<?php
 	}
 	?>

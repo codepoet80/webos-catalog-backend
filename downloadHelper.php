@@ -2,6 +2,11 @@
 header('Content-Type: application/javascript');
 session_start();
 ?>
+function populateLink() {
+    var linkTD = document.getElementById("tdDownloadLink");
+    linkTD.innerHTML = "<a href=\"javascript:getLink('" + linkTD.getAttribute("data-encoded-uri") + "', " + linkTD.getAttribute("data-app-id") + ")\">Direct Link</a>";
+}
+
 function getLink(encodedLink, appId)
 {
     countAppDownloads(appId);
@@ -19,7 +24,7 @@ function countAppDownloads(appId) {
         var pageParts = window.location.pathname.split("/");
         var lastPage = pageParts[pageParts.length-1];
         var urlParts = window.location.href.split(lastPage);
-        var url = urlParts[0] + 'WebService/countAppDownload.php?appid=' + appId + "&source=web";
+        var url = urlParts[0] + 'WebService/countAppDownload.php?appid=' + appId + "&source=" + encodeURIComponent(navigator.userAgent);
         
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);

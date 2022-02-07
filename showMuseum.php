@@ -87,13 +87,13 @@ if (isset($app_response))
 <link rel="stylesheet" href="webmuseum.css">
 <script>
 	function changeSearchFilter() {
-		if (document.getElementById("txtSearch").value == "") {
+		if (document.getElementById("txtSearch") && document.getElementById("txtSearch").value == "") {
 			document.frmSearch.submit();
 		}
 	}
 </script>
 </head>
-<body onload="document.getElementById('txtSearch').focus()">
+<body onload="if (document.getElementById('txtSearch')) { document.getElementById('txtSearch').focus(); }">
 <?php include("menu.php") ?>
 <div class="show-museum"  style="margin-right:1.3em">
 <h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>

@@ -2,14 +2,6 @@
 <head>
 <link rel="shortcut icon" href="favicon.ico">
 <meta name="viewport" content="width=700, initial-scale=0.5">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-12254772-3');
-</script>
 
 <?php
 $config = include('WebService/config.php');

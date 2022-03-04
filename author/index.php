@@ -89,14 +89,6 @@ include('../common.php');
 <head>
 <link rel="shortcut icon" href="<?php echo $author_path . "/" . $author_data['favicon']; ?>">
 <meta name="viewport" content="width=760, initial-scale=0.6">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12254772-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-12254772-3');
-</script>
 <?php
 //Figure out where to go back to
 parse_str($_SERVER["QUERY_STRING"], $query);

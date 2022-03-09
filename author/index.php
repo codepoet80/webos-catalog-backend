@@ -6,17 +6,33 @@ if (!isset($_SESSION['encode_salt']))
 {
 	$_SESSION['encode_salt'] = uniqid();
 }
-$string = file_get_contents("../archivedAppData.json");
+//Load archive
+/*
+$string = file_get_contents("archivedAppData.json");
 if ($string === false) {
-	echo ("ERROR: Could not find catalog file");
+	echo ("ERROR: Could not find archived catalog file");
 	die;
 }
-
 $json_a = json_decode($string, true);
 if ($json_a === null) {
-	echo ("ERROR: Could not parse catalog file");
+	echo ("ERROR: Could not parse archive file");
 	die;
 }
+*/
+//Load newer apps
+/*
+$string = file_get_contents("newerAppData.json");
+if ($string === false) {
+	echo ("ERROR: Could not find newer catalog file");
+	die;
+}
+$json_b = json_decode($string, true);
+if ($json_b === null) {
+	echo ("ERROR: Could not parse newer catalog file");
+	die;
+}*/
+//Combine
+//$fullcatalog = array_merge($json_a, $json_b);
 
 //figure out what protocol to use
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')

@@ -21,4 +21,30 @@ function render_social($link, $basePath) {
 		$imgsrc = $basePath. "/social/youtube.png";
 	return "<img src='" . $imgsrc . "' class='authorSocial'>";
 }
+
+function load_catalogs($catalogs) {
+	$fullcatalog = array();
+	foreach ($catalogs as $catalog) {
+		$string = file_get_contents($catalog);
+		if ($string === false) {
+			echo ("ERROR: Could not find catalog file: " . $catalog);
+			die;
+		}
+		$apps = json_decode($string, true);
+		if ($apps === null) {
+			echo ("ERROR: Could not parse catalog file: ". $catalog);
+			die;
+		}
+		foreach ($apps as $app) {
+			$exist = false;
+			foreach ($fullcatalog as $exist) {
+				if ($app["id"] == $exist["id"])
+					$found = true;
+			}
+			if (!$found)
+				array_push($fullcatalog, $app);
+		}
+	}
+	return $fullcatalog;
+}
 ?>

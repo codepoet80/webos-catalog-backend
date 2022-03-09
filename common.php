@@ -36,7 +36,7 @@ function load_catalogs($catalogs) {
 			die;
 		}
 		foreach ($apps as $app) {
-			$exist = false;
+			$found = false;
 			foreach ($fullcatalog as $exist) {
 				if ($app["id"] == $exist["id"])
 					$found = true;

@@ -2,7 +2,7 @@
 $config = include('config.php');
 header('Content-Type: application/json');
 
-$string = file_get_contents("../extantAppData.json");
+$string = file_get_contents("../archivedAppData.json");
 if ($string === false) {
 	die("{\"error\": \"Could not find catalog file\"}");
 }

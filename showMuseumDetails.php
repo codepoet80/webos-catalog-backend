@@ -15,7 +15,7 @@ if (!isset($_SESSION['encode_salt']))
 {
 	$_SESSION['encode_salt'] = uniqid();
 }
-$string = file_get_contents("extantAppData.json");
+$string = file_get_contents("archivedAppData.json");
 if ($string === false) {
 	echo ("ERROR: Could not find catalog file");
 	die;

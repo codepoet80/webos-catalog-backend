@@ -142,7 +142,7 @@ if (isset($app_response))
 				<p align='middle' style='margin-bottom:30px;'><i>Choose a category to view apps, or...</i></p>
 				<form action="" id="frmSearch" name="frmSearch" method="get">
 					<div style="margin-left:auto;margin-right:auto;text-align:center;">
-					<input type="text" id="txtSearch" name="search" class="search" placeholder="Just type..." value="<?php echo $_GET['search']; ?>">
+					<input type="text" id="txtSearch" name="search" class="search" placeholder="Just type..." value="<?php if (isset($_GET['search'])) { echo $_GET['search']; } ?>">
 
 					<input type="submit" class="search-button" value="Search">
 					<?php

@@ -3,7 +3,7 @@ $config = include('config.php');
 include("../common.php");
 header('Content-Type: application/json');
 
-$fullcatalog = load_catalogs(array("../archivedAppData.json", "../newerAppData.json"));
+$fullcatalog = load_catalogs(array("../newerAppData.json", "../archivedAppData.json"));
 
 $search_str = $_SERVER["QUERY_STRING"];
 $search_type = "app";

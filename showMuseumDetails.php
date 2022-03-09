@@ -65,13 +65,17 @@ $app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["descriptio
 $app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
 $app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
 
-//Make some URLs
+//Let's make some URLs!
 $author_url = "author/" . $found_app["author"];
 $share_url = $protocol . $config["service_host"] . "/app/" . str_replace(" " , "", $found_app["title"]);
-
+//Support absolute download paths (files hosted elsewhere)
+if ((strpos($app_detail["filename"], "http://") === false) || (strpos($app_detail["filename"], "http://") === false)) {
+	$plainURI = $protocol . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+} else {
+	$plainURI = $app_detail["filename"];
+}
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth
-$plainURI = $protocol . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
 $downloadURI = base64_encode($plainURI);
 $splitPos = rand(1, strlen($downloadURI) - 2);
 $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . substr($downloadURI, $splitPos);

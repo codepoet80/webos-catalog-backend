@@ -75,7 +75,6 @@ if ($favicon_search) {	//return just the favicon
 	}
 	die();
 }
-include('../common.php');
 ?>
 <html>
 <head>

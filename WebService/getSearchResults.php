@@ -48,7 +48,7 @@ foreach ($fullcatalog as $this_app => $app_a) {
 	if ($search_type == "author" && 
 		(strtolower($app_a["author"]) == $search_str || 
 		(strpos(strtolower($app_a["author"]), $search_str) !== false) ||
-		(str_replace(strtolower(" ", "", $app_a["author"])) == $search_str) || 
+		(strtolower(str_replace(" ", "", $app_a["author"])) == $search_str) || 
 		(strpos(strtolower(str_replace(" ", "", $app_a["author"])), $search_str) !== false)
 	 )) 
 	{

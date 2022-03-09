@@ -151,8 +151,9 @@
 	$archivedapps = json_decode(fread($myfile,filesize($useFile)), true);
 	fclose($myfile);
 
-	$myfile  = fopen("../newerAppData.json", "r");	//TODO: this is unused
-	$newerapps = json_decode(fread($myfile,filesize($myfile)), true);
+	$useFile = "../newerAppData.json";
+	$myfile  = fopen($useFile, "r");	//TODO: this is unused
+	$newerapps = json_decode(fread($myfile,filesize($useFile)), true);
 	fclose($myfile);
 
 	$masterdata = array_merge($archivedapps, $newerapps);

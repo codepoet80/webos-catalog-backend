@@ -84,6 +84,13 @@ $downloadURI = substr($downloadURI, 0, $splitPos) . $_SESSION['encode_salt'] . s
 parse_str($_SERVER["QUERY_STRING"], $query);
 unset($query["app"]);
 $homePath = "showMuseum.php?" . http_build_query($query);
+
+//Figure out image paths
+if (strpos($found_app["appIconBig"], "://") === false) {
+	$use_icon = $img_path.$found_app["appIconBig"];
+} else {
+	$use_icon = $found_app["appIconBig"];
+}
 ?>
 <title><?php echo $found_app["title"] ?> - webOS App Museum II</title>
 <link rel="stylesheet" href="webmuseum.css">
@@ -97,7 +104,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<table border="0" style="margin-left:1.3em;">
 	<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>
 		<td rowspan="2">
-		<img src="<?php echo $img_path. $found_app["appIconBig"]?>" class="appIcon" >
+		<img src="<?php echo $use_icon?>" class="appIcon" >
 	</td></tr>
 	<tr><td class="rowTitle">Museum ID</td><td class="rowDetail"><?php echo $found_app["id"] ?></td></tr>
 	<tr><td class="rowTitle">Application ID</td><td colspan="2" class="rowDetail"><?php echo $app_detail["publicApplicationId"] ?></td></tr>
@@ -140,7 +147,17 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 	<td colspan="2" class="rowDetail">
 	<?php
 	foreach ($app_detail["images"] as $value) {
-		echo("<a href='" . $img_path . $value["screenshot"] . "' target='_blank'><img class='screenshot' src='" . $img_path. $value["thumbnail"] . "' style='width:64px'></a>");
+		if (strpos($value["screenshot"], "://") === false) {
+			$use_screenshot = $img_path.$value["screenshot"];
+		} else {
+			$use_screenshot = $value["screenshot"];
+		}
+		if (strpos($value["thumbnail"], "://") === false) {
+			$use_thumb = $img_path.$value["thumbnail"];
+		} else {
+			$use_thumb = $value["thumbnail"];
+		}
+		echo("<a href='" . $use_screenshot . "' target='_blank'><img class='screenshot' src='" . $use_thumb . "' style='width:64px'></a>");
 	}
 	?>
 	</td></tr>

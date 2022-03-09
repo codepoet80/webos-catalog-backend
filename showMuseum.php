@@ -121,7 +121,13 @@ if (isset($app_response))
 				}
 				echo("<table cellpadding='5'>");
 				foreach($app_response["data"] as $app) {
-					echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$img_path}{$app["appIcon"]}' border='0'></a>");
+					if (strpos($app["appIcon"], "://") === false) {
+						$use_img = $img_path.$app["appIcon"];
+					} else {
+						$use_img = $app["appIcon"];
+					}
+
+					echo("<tr><td align='center' valign='top'><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$use_img}' border='0'></a>");
 					echo("<td width='100%' style='padding-left: 14px'><b><a href='showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
 					echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
 					echo("</td></tr>");

@@ -99,11 +99,16 @@ if (isset($meta_path)) {
 	fclose($meta_file);
 
 	$json_m = json_decode($content, true);
+	if (strpos($json_m["filename"], "://") === false) {
+		$use_uri = "http://" . $config["package_host"] . '/AppPackages/' . $json_m["filename"];
+	} else {
+		$use_uri = $json_m["filename"];
+	}
 	$outputObj = array (
 		"version" => $json_m["version"],
 		"versionNote" => get_last_version_note($json_m["versionNote"]),
 		"lastModifiedTime" => $json_m["lastModifiedTime"],
-		"downloadURI" => "http://" . $config["package_host"] . '/AppPackages/' . $json_m["filename"],
+		"downloadURI" => $use_uri,
 	);
 }
 echo (json_encode($outputObj));

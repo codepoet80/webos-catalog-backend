@@ -1,6 +1,6 @@
 <?PHP
 $config = include('config.php');
-include("common.php");
+include("../common.php");
 header('Content-Type: application/json');
 
 $fullcatalog = load_catalogs(array("../archivedAppData.json", "../newerAppData.json"));

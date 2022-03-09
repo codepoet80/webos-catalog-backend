@@ -144,16 +144,22 @@
 
 	$extraData = array();
 
-	$useFile = "../extantAppData.json";
+	$useFile = "../archivedAppData.json";
 	if ($_museumVersion == "0.0.0")	//TODO: could make this a blacklist
 		$useFile = "../outofdateAppData.json";
 	$myfile = fopen($useFile, "r");
-	$masterdata = json_decode(fread($myfile,filesize($useFile)), true);
+	$archivedapps = json_decode(fread($myfile,filesize($useFile)), true);
 	fclose($myfile);
+
+	$myfile  = fopen("../newerAppData.json", "r");	//TODO: this is unused
+	$newerapps = json_decode(fread($myfile,filesize($myfile)), true);
+	fclose($myfile);
+
+	$masterdata = array_merge($archivedapps, $newerapps);
 	
-	$myfile  = fopen("../missingApps.json", "r");	//TODO: this is unused
-	$missing = json_decode(fread($myfile,filesize("../missingApps.json")), true);
-	fclose($myfile);
+	//$myfile  = fopen("../missingApps.json", "r");	//No longer showing missing apps
+	//$missing = json_decode(fread($myfile,filesize("../missingApps.json")), true);
+	//fclose($myfile);
 	
 	$output         = array();
 	$indices        = array();

@@ -10,6 +10,7 @@ function showHelp() {
 
 <?php
 $config = include('WebService/config.php');
+include('common.php');
 session_start();
 if (!isset($_SESSION['encode_salt']))
 {

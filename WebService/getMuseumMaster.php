@@ -1,4 +1,5 @@
 <?PHP
+	include('../common.php');
 	header('Content-Type: application/json');
 	/*
 	 * query inputs:

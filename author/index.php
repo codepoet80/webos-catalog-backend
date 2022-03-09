@@ -8,7 +8,7 @@ if (!isset($_SESSION['encode_salt']))
 }
 //Load archive
 
-$string = file_get_contents("archivedAppData.json");
+$string = file_get_contents("../archivedAppData.json");
 if ($string === false) {
 	echo ("ERROR: Could not find archived catalog file");
 	die;
@@ -21,7 +21,7 @@ if ($json_a === null) {
 
 //Load newer apps
 
-$string = file_get_contents("newerAppData.json");
+$string = file_get_contents("../newerAppData.json");
 if ($string === false) {
 	echo ("ERROR: Could not find newer catalog file");
 	die;

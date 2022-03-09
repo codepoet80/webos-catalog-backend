@@ -74,7 +74,6 @@ foreach ($fullcatalog as $this_app => $app_a) {
 		(strpos(strtolower(str_replace(" ", "", $app_a["author"])), $search_str) !== false)
 	 )) 
 	{
-		
 		//Filter out adult apps (unless requested)
 		if (!$_adult && $app_a['Adult']) {
 			continue;

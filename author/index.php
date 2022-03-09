@@ -20,7 +20,6 @@ if ($json_a === null) {
 }
 
 //Load newer apps
-
 $string = file_get_contents("../newerAppData.json");
 if ($string === false) {
 	echo ("ERROR: Could not find newer catalog file");

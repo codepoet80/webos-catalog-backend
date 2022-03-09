@@ -13,6 +13,11 @@ $meta_file = fopen($meta_path, "rb");
 $content = stream_get_contents($meta_file);
 fclose($meta_file);
 $outputObj = json_decode($content, true);
+if (strpos($outputObj["filename"], "://") === false) {
+  $use_uri = $download_path . $outputObj["filename"];
+} else {
+  $use_uri = $outputObj["filename"];
+}
 ?>
 
 <title>webOS App Museum II</title>
@@ -35,7 +40,7 @@ td { padding: 20px;}
 <div id="wrapper" style="text-align: center; padding-top:28px;">
   <div id="col1" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Download for webOS 2.0+ Devices</h3>
-    <a href="<?php echo $download_path . $outputObj["filename"]?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
+    <a href="<?php echo $use_uri?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
     <small>
     Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
     Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>

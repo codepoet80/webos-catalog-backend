@@ -88,7 +88,7 @@ if (isset($app_response))
 <body onload="if (document.getElementById('txtSearch')) { document.getElementById('txtSearch').focus(); }">
 <?php include("menu.php") ?>
 <div class="show-museum"  style="margin-right:1.3em">
-<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
+<h2><a href="<?php echo ($homePath); ?>"><img src="assets/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<div class="museumMaster" style="margin-left:1.3em;">
 		<div class="categoryMenu">
 			<?php
@@ -138,7 +138,7 @@ if (isset($app_response))
 			else
 			{
 				?>
-				<p align='middle' style='margin-top:50px;'><img src='webos-apps.png'></p>
+				<p align='middle' style='margin-top:50px;'><img src='assets/webos-apps.png'></p>
 				<p align='middle' style='margin-bottom:30px;'><i>Choose a category to view apps, or...</i></p>
 				<form action="" id="frmSearch" name="frmSearch" method="get">
 					<div style="margin-left:auto;margin-right:auto;text-align:center;">

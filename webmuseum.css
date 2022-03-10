@@ -46,8 +46,8 @@ h1
 {
     font-size:18px;
     text-align:left;
-    margin-left: 30px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding-bottom: 18px;
 }
 .rowTitle
@@ -85,12 +85,12 @@ h1
 .deviceSupport::after
 {
     content: " \2717";
-    content: url(false.png);
+    content: url(assets/false.png);
 }
 .deviceSupport1::after
 {
     content: " \2713";
-    content: url(true.png);
+    content: url(assets/true.png);
 }
 
 .museumMaster {

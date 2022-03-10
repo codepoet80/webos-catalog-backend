@@ -91,7 +91,7 @@ if (strpos($found_app["appIconBig"], "://") === false) {
 <body onload="populateLink()">
 <?php include("menu.php") ?>
 <div class="show-museum" style="margin-right:1.3em">
-	<h2><a href="<?php echo ($homePath); ?>"><img src="icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
+	<h2><a href="<?php echo ($homePath); ?>"><img src="assets/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
 	<table border="0" style="margin-left:1.3em;">
 	<tr><td colspan="2"><h1><?php echo $found_app["title"] ?></h1></td>

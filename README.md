@@ -2,7 +2,7 @@
 
 PHP Back-end for webOS App Catalog restoration project. Front-end is here: [https://github.com/codepoet80/webos-catalog-frontend](https://github.com/codepoet80/webos-catalog-frontend)
 
-![App Icon](icon.png)
+![App Icon](assets/icon.png)
 
 You can use this app on a Pre3 or Touchpad, or access the catalog in a browser at [http://appcatalog.webosarchive.com](http://appcatalog.webosarchive.com)
 

@@ -92,7 +92,7 @@ $homePath = $protocol . $config["service_host"]. "";
 <body>
 <?php include("../menu.php") ?>
 <div class="show-museum" style="margin-right:1.3em">
-	<h2><a href="<?php echo ($homePath); ?>"><img src="<?php echo $protocol . $config["service_host"]; ?>/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
+	<h2><a href="<?php echo ($homePath); ?>"><img src="<?php echo $protocol . $config["service_host"]; ?>/assets/icon.png" style="height:64px;width:64px;margin-top:-10px;" align="middle"></a> &nbsp;<a href="<?php echo ($homePath); ?>">webOS App Museum II</a></h2>
 	<br>
 	<table border="0" style="margin-left:1.3em; width:100%; margin-bottom: 40px;">
 		<tr>

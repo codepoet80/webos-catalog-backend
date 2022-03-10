@@ -30,7 +30,7 @@ td { padding: 20px;}
 <?php include('menu.php'); ?>
 <p align='middle' style='margin-top:50px;'>
 
-  <img src="icon.png"><br/>
+  <img src="assets/icon.png"><br/>
   &nbsp;<br/>
   <strong>webOS App Museum II</strong><br/>
   <small>A project of <a href="http://www.webosarchive.com">webOSArchive.com</a></small><br>

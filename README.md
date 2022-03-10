@@ -16,7 +16,7 @@ https://stackoverflow.com/questions/1216274/unable-to-call-the-built-in-mb-inter
 
 Some features require mod_rewrite in Apache.
 
-Use the WebService/config.php to point to the subdomains that provide the requisite parts (metadata and app packages)
+Use the [WebService/config.php](https://github.com/codepoet80/webos-catalog-backend/blob/main/WebService/config.php) to point to the subdomains that provide the requisite parts (metadata, images and app packages)
 
 ## AppData Files
 

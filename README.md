@@ -26,7 +26,7 @@ For the purposes of education and preservation, App Museum II links the Museum w
 
 ### masterAppData.json
 
-This file contains a record of all apps that were known to exist in the HP/Palm App Catalog at the time that the community attempted to archive it on or around [January 15, 2015 when HP shut it down](https://pivotce.com/2014/10/16/hp-to-shut-down-catalog-and-cloud-services/).) This file is not used by the App Museum back-end, but may be used by cataloging and indexing tools when and if new IPKs are found.
+This file contains a record of all apps that were known to exist in the HP/Palm App Catalog at the time that the community attempted to archive it on or around [January 15, 2015 when HP shut it down](https://pivotce.com/2014/10/16/hp-to-shut-down-catalog-and-cloud-services/). This file is not used by the App Museum back-end, but may be used by cataloging and indexing tools when and if new IPKs are found.
 
 ### archivedAppData.json
 
@@ -46,7 +46,10 @@ This file is used when an out-of-date version of the App Museum II front-end att
 
 While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the WebService/config.php file you can point to different hosts for each set of content.
 
-+ **AppMetadata**: Detailed app meta data for each app. Available in this [https://www.github.com/codepoet80/webos-catalog-metadata](GitHub repository).
+[community](http://www.webosarchive.com/discord)
+
+
++ **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata.
 + **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive]().
 + **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [archive]().
 

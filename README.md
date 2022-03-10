@@ -46,14 +46,11 @@ This file is used when an out-of-date version of the App Museum II front-end att
 
 While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the WebService/config.php file you can point to different hosts for each set of content.
 
-[community](http://www.webosarchive.com/discord)
-
-
-+ **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata.
++ **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata).
 + **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive]().
 + **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [archive]().
 
-The entire App Museum II is currently hosted at [http://appcatalog.webosarchive.com](appcatalog.webosarchive.com). Please contact the curator if you wish to host a mirror.
+The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). Please contact the curator if you wish to host a mirror.
 
 The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [archive]().
 
@@ -73,7 +70,7 @@ Apple and Google take turns copying each other, and consumers line up to buy bas
 Windows Phone were serious competitors was marked by creativity in form factor and software development, which has been lost. This app represents a (futile)
 attempt to keep webOS mobile devices useful for as long as possible.
 
-The website [http://www.webosarchive.com](http://www.webosarchive.com) recovers, archives and maintains material related to development, and hosts services
+The website [www.webosarchive.com](http://webosarchive.com) recovers, archives and maintains material related to development, and hosts services
 that restore functionality to webOS devices. A small but active [community](http://www.webosarchive.com/discord) of users take advantage of these services to keep their retro devices alive.
 
 ## How?

@@ -18,6 +18,42 @@ Some features require mod_rewrite in Apache.
 
 Use the WebService/config.php to point to the subdomains that provide the requisite parts (metadata and app packages)
 
+## AppData Files
+
+The original museum used two files that listed known-to-be-saved and missing apps from the original HP/Palm App Catalog. Users could show the full catalog, or just the part of the catalog for which an IPK may exist...somewhere.
+
+For the purposes of education and preservation, App Museum II links the Museum with actual IPKs in an archive or on its mirrors, and so introduces additional files and behaviors. Additionally, as of March 2022, the App Museum Archive itself is considered "frozen" -- although mechanisms have been added to support new listings in the UI that are independent of the archive.
+
+### masterAppData.json
+
+This file contains a record of all apps that were known to exist in the HP/Palm App Catalog at the time that the community attempted to archive it (on or around [https://pivotce.com/2014/10/16/hp-to-shut-down-catalog-and-cloud-services/](January 15, 2015 when HP shut it down).) This file is not used by the App Museum back-end, but may be used by cataloging and indexing tools when and if new IPKs are found.
+
+### archivedAppData.json
+
+Initially called extentAddData, this is the primary catalog file used by App Museum II. It lists the subset of the masterAppData that is known to exist in the Museum archive and its mirrors. As of March 2022, all of the archives on the public Internet, and over a dozen personal archives from the community have been indexed, so its now considered highly unlikely there will ever again be significant changes to this file, and its been renamed to indicate its long-term archival status.
+
+Note this file also contains some post-shut down app development by the community that never existed in the HP/Palm App Catalog. Since such development has slowed down, as of March 2022, any new apps submitted will no longer be added to this catalog file, and will instead be added to a secondary catalog file...
+
+### newerAppData.json
+
+This secondary catalog file contains apps developed post-shut down and post-archival. Apps referenced by this file can not be stored in the App Museum Archive or its mirrors and must be hosted elsewhere (eg: GitHub or a personal server.)
+
+### outofdataAppData.json
+
+This file is used when an out-of-date version of the App Museum II front-end attempts to query the catalog, and directs users to update their client app.
+
+## The Rest of the Archive
+
+While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the WebService/config.php file you can point to different hosts for each set of content.
+
++ **AppMetadata**: Detailed app meta data for each app. Available in this [https://www.github.com/codepoet80/webos-catalog-metadata](GitHub repository).
++ **AppImages**: Art (icon and screenshot) files for each app. Available in this [](archive).
++ **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [](archive).
+
+The entire App Museum II is currently hosted at [http://appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). Please contact the curator if you wish to host a mirror.
+
+The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [](archive).
+
 ## What is This?
 
 This is an app for the defunct mobile webOS platform, made by Palm and later acquired by HP. It runs on devices like the Palm Pre or Pixi, or the HP

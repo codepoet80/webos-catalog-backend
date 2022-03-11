@@ -149,7 +149,7 @@
 	$useFile = "../archivedAppData.json";
 	if (in_array($_museumVersion, array("0.0.0", "2.8.0", "2.8.1", "2.9.0"))) {	//handle old versions
 		$useFile = "../outofdateAppData.json";	
-		if (in_array($_museumVersion, array("0.0.0"))){ 	//handle really old version
+		if (in_array($_museumVersion, array("0.0.0", "2.8.0", "2.8.1"))){ 	//handle really old version
 			$useFile = "../reallyOutOfDateAppData.json";	
 		}
 		$masterdata = load_catalogs(array($useFile));

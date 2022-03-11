@@ -28,6 +28,10 @@ For the purposes of education and preservation, App Museum II links the Museum w
 
 This file contains a record of all apps that were known to exist in the HP/Palm App Catalog at the time that the community attempted to archive it on or around [January 15, 2015 when HP shut it down](https://pivotce.com/2014/10/16/hp-to-shut-down-catalog-and-cloud-services/). This file is not used by the App Museum back-end, but may be used by cataloging and indexing tools when and if new IPKs are found.
 
+### missingAppData.json
+
+The subset of the masterAppData.json for which no matching IPK has been archived or found. If you have any of these files, please contact the curator.
+
 ### archivedAppData.json
 
 Initially called extentAddData, this is the primary catalog file used by App Museum II. It lists the subset of the masterAppData that is known to exist in the Museum archive and its mirrors. As of March 2022, all of the archives on the public Internet, and over a dozen personal archives from the community have been indexed, so its now considered highly unlikely there will ever again be significant changes to this file, and its been renamed to indicate its long-term archival status.
@@ -47,12 +51,16 @@ This file is used when an out-of-date version of the App Museum II front-end att
 While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the WebService/config.php file you can point to different hosts for each set of content.
 
 + **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata).
-+ **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive]().
-+ **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [archive]().
++ **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=gICebV).
++ **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=gICebV).
 
-The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). Please contact the curator if you wish to host a mirror.
+The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). 
 
-The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [archive]().
+A Mirror is available at: http://museum.weboslives.eu/AppPackages/
+
+Please contact the curator if you are able to host a mirror.
+
+The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=gICebV).
 
 ## What is This?
 

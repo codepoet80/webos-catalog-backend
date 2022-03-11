@@ -40,7 +40,7 @@ Note this file also contains some post-shut down app development by the communit
 
 ### newerAppData.json
 
-This secondary catalog file contains apps developed post-shut down and post-archival. Apps referenced by this file can not be stored in the App Museum Archive or its mirrors and must be hosted elsewhere (eg: GitHub or a personal server.)
+This secondary catalog file contains apps developed post-shut down and post-freeze. Apps referenced by this file cannot be stored in the App Museum Archive or its mirrors and must be hosted elsewhere. For compatibility with older devices, hosts should support HTTP access (webOS devices have trouble with modern HTTPS).
 
 ### outofdataAppData.json
 

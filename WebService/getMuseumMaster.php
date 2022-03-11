@@ -147,10 +147,12 @@
 
 	//Load catalogs
 	$useFile = "../archivedAppData.json";
-	if ($_museumVersion == "0.0.0")	//TODO: could make this a blacklist
-		$useFile = "../outofdateAppData.json";
-	$masterdata = load_catalogs(array("../newerAppData.json", $useFile));
-
+	if ($_museumVersion == "0.0.0")	{
+		$useFile = "../outofdateAppData.json";	
+		$masterdata = load_catalogs(array($useFile));
+	} else {
+		$masterdata = load_catalogs(array("../newerAppData.json", $useFile));
+	}
 	
 	//$myfile  = fopen("../missingApps.json", "r");	//No longer showing missing apps
 	//$missing = json_decode(fread($myfile,filesize("../missingApps.json")), true);

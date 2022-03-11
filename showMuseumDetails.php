@@ -108,6 +108,7 @@ if (strpos($found_app["appIconBig"], "://") === false) {
 	<?php
 	$browserAsString = $_SERVER['HTTP_USER_AGENT'];
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {
+		$plainURI = str_replace("https://", "http://", $plainURI);
 	?>
 		<tr><td class="rowTitle">Download</td><td colspan="2" class="rowDetail">
 			<a href="<?php echo $plainURI ?>">Preware Link</a> 

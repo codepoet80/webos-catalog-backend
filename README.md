@@ -34,7 +34,7 @@ The subset of the masterAppData.json for which no matching IPK has been archived
 
 ### archivedAppData.json
 
-Initially called extentAddData, this is the primary catalog file used by App Museum II. It lists the subset of the masterAppData that is known to exist in the Museum archive and its mirrors. As of March 2022, all of the archives on the public Internet, and over a dozen personal archives from the community have been indexed, so its now considered highly unlikely there will ever again be significant changes to this file, and its been renamed to indicate its long-term archival status.
+Initially called extentAppData, this is the primary catalog file used by App Museum II. It lists the subset of the masterAppData that is known to exist in the Museum archive and its mirrors. As of March 2022, all of the archives on the public Internet, and over a dozen personal archives from the community have been indexed, so its now considered highly unlikely there will ever again be significant changes to this file, and its been renamed to indicate its long-term archival status.
 
 Note this file also contains some post-shut down app development by the community that never existed in the HP/Palm App Catalog. Since such development has slowed down, as of March 2022, any new apps submitted will no longer be added to this catalog file, and will instead be added to a secondary catalog file...
 

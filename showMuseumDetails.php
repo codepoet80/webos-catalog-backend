@@ -62,7 +62,7 @@ $author_url = "author/" . $found_app["author"];
 $share_url = $protocol . $config["service_host"] . "/app/" . str_replace(" " , "", $found_app["title"]);
 //Support absolute download paths (files hosted elsewhere)
 if (strpos($app_detail["filename"], "://") === false) {
-	$plainURI = $protocol . $config["package_host"] . "/AppPackages/" . $app_detail["filename"];
+	$plainURI = $protocol . $config["package_host"] . "/" . $app_detail["filename"];
 } else {
 	$plainURI = $app_detail["filename"];
 }

@@ -94,7 +94,7 @@ if (isset($meta_path)) {
 
 	$json_m = json_decode($content, true);
 	if (strpos($json_m["filename"], "://") === false) {
-		$use_uri = "http://" . $config["package_host"] . '/AppPackages/' . $json_m["filename"];
+		$use_uri = "http://" . $config["package_host"] . '/' . $json_m["filename"];
 	} else {
 		$use_uri = $json_m["filename"];
 	}

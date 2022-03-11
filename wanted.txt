@@ -5894,5 +5894,3 @@ com.dseffects.zombiepalace_1.0.0_all.ipk
 com.gpimports.zombietraffic_1.0.0_all.ipk
 com.zombie_1.0.0_all.ipk
 com.nanonino.zurichcityguide_1.0.0_all.ipk
-com.palm.wosa.proxysetter_1.1.2_all.ipk
-com.grabber.forums_1.4.6_all.ipk

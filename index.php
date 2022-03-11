@@ -51,13 +51,14 @@ td { padding: 20px;}
   <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Other Ways to view the Museum</h3>
     <p><a href="showMuseum.php">Browse Catalog Online</a></p>
-    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUju14rSHmAJYXIdSjMA?e=QRM2f8">Download Entire Archive</a><br/>
-    <small><i>34.1 GB: 3822 apps cataloged, 1606 un-cataloged</i></small></p>
+    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=Y64Ybq">Download Entire Archive</a><br/>
+    <small><i>36.9 GB: 3818 apps cataloged, 2033 un-cataloged</i></small></p>
   </div>
 </div>
 
 <p align='middle'>
-  Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
+  Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!<br>
+  This open source project is available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a>.
 </p>
 </body>
 </html>

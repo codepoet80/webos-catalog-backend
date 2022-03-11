@@ -152,8 +152,7 @@
 		$masterdata = load_catalogs(array($useFile));
 		if (in_array($_museumVersion, array("0.0.0"))){ 	//handle really old version
 			foreach($masterdata as $key => $app) {
-				$relativeFile = end(explode($app['filename']));
-				$app['filename'] = $relativeFile;
+				$app['id'] = "1.json";
 			}
 		}
 	} else {

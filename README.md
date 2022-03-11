@@ -56,7 +56,9 @@ While this project represents the back-end (and web-based front-end) of App Muse
 
 The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). 
 
-A Mirror is available at: http://museum.weboslives.eu/AppPackages/
+Mirrors are available at:
++ http://museum.weboslives.eu/AppPackages/
++ http://wosa-apparchive.b-cdn.net/AppPackages/
 
 Please contact the curator if you are able to host a mirror.
 
@@ -64,8 +66,7 @@ The full historical dataset includes other files that, for various reasons, are 
 
 ## What is This?
 
-This is an app for the defunct mobile webOS platform, made by Palm and later acquired by HP. It runs on devices like the Palm Pre or Pixi, or the HP
-Pre3 or TouchPad. 
+This is the back-end of an app museum for the defunct mobile webOS platform, made by Palm and later acquired by HP. The platform ran on devices like the Palm Pre or Pixi, or the HP Pre3 or TouchPad. 
 
 webOS technology was acquired by LG and repurposed for TVs and IoT devices, but they made significant changes and this app will not run on those platforms.
 

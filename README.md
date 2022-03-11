@@ -14,7 +14,7 @@ https://keystoneit.wordpress.com/2007/02/19/making-apache-case-insensitive/
 You'll also need `mb_internal_encoding`:
 https://stackoverflow.com/questions/1216274/unable-to-call-the-built-in-mb-internal-encoding-method
 
-Some features require `mod_rewrite` in Apache.
+Some features require `mod_rewrite` in Apache: https://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2
 
 Copy the [WebService/config-example.php](https://github.com/codepoet80/webos-catalog-backend/blob/main/WebService/config.php) to `config.php` in the same folder, then edit to point to the subdomains that provide the requisite parts (metadata, images and app packages)
 

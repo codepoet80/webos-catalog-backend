@@ -58,7 +58,7 @@ td { padding: 20px;}
 
 <p align='middle'>
   Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!<br>
-  This open source project is available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a>.
+  <small>This open source project is available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a>.</small>
 </p>
 </body>
 </html>

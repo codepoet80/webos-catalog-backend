@@ -22,7 +22,7 @@ Copy the [WebService/config-example.php](https://github.com/codepoet80/webos-cat
 
 The original museum used two files that listed known-to-be-saved and missing apps from the original HP/Palm App Catalog. Users could show the full catalog, or just the part of the catalog for which an IPK may exist...somewhere.
 
-For the purposes of education and preservation, App Museum II links the Museum with actual IPKs in an archive or on its mirrors, and so introduces additional files and behaviors. Additionally, as of March 2022, the App Museum Archive itself is considered "frozen" -- although mechanisms have been added to support new listings in the UI that are independent of the archive.
+For the purposes of education and preservation, App Museum II links the Museum with actual IPKs in an archive or on its mirrors, and so introduces additional files and behaviors. Additionally, as of March 2022, the App Museum Archive itself is considered "frozen" -- although mechanisms have been added to support new listings in the UI that are independent of the historical archive.
 
 ### masterAppData.json
 

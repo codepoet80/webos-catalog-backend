@@ -60,7 +60,7 @@ Mirrors are available at:
 + http://museum.weboslives.eu/AppPackages/
 + http://wosa-apparchive.b-cdn.net/AppPackages/
 
-Please contact the curator if you are able to host a mirror.
+Please contact the curator if you are able to host a mirror. Note that all hosted content for a museum instance *must* be available over HTTP as webOS has out-dated support for HTTPS.
 
 The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=gICebV).
 

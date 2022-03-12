@@ -2,7 +2,7 @@
 $config = include('WebService/config.php');
 
 //Get the app info
-$download_path = "http://" . $config["package_host"] . "/";
+$download_path = "http://packages.webosarchive.com/AppPackages/";
 
 $meta_path = "http://" . $config["metadata_host"] . "/0.json";
 $meta_file = fopen($meta_path, "rb");

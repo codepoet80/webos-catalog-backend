@@ -51,8 +51,8 @@ This file is used when an out-of-date version of the App Museum II front-end att
 While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the `WebService/config.php` file you can point to different hosts for each set of content.
 
 + **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata).
-+ **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JMI3E5v9ySZTtWmQ?e=2lJ24w).
-+ **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Available in this [archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JMI3E5v9ySZTtWmQ?e=J2YFJc).
++ **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive](https://archive.org/details/webOSAppCatalogArchive-Complete).
++ **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Also available in this [archive](https://archive.org/details/webOSAppCatalogArchive-Complete).
 
 The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). 
 
@@ -62,7 +62,7 @@ Mirrors are available at:
 
 Please contact the curator if you are able to host a mirror. Note that all hosted content for a museum instance *must* be available over HTTP as webOS has out-dated support for HTTPS.
 
-The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [complete archive](https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=Y64Ybq).
+The full historical dataset includes other files that, for various reasons, are not a part of the Museum. These files are also a part of this [complete archive](https://archive.org/details/webOSAppCatalogArchive-Complete).
 
 ## What is This?
 

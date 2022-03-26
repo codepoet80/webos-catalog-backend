@@ -51,7 +51,7 @@ td { padding: 20px;}
   <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Other Ways to view the Museum</h3>
     <p><a href="showMuseum.php">Browse Catalog Online</a></p>
-    <p><a href="https://1drv.ms/u/s!Av5IQUxnr8DUj6JRBurzQFBNbg0WOQ?e=Y64Ybq">Download Entire Archive</a><br/>
+    <p><a href="https://archive.org/details/webOSAppCatalogArchive-Complete">Download Entire Archive</a><br/>
     <small><i>36.9 GB: 3818 apps cataloged, 2033 un-cataloged</i></small></p>
   </div>
 </div>

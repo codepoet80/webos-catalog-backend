@@ -52,7 +52,6 @@
 			mkdir("__museumSessions", 0777, true);
 		}
 		if (!file_exists("__museumSessions/{$key}.json")) {
-			//shell_exec("/home/pi/Library/pi/push-message 'App Museum II' 'New session created!'");
 			$_sessionData = array(
 				"knownIdx" => array()
 			);

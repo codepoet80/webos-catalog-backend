@@ -44,6 +44,7 @@ td { padding: 20px;}
     <small>
     Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
     Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>
+    <div style="margin-top: 8px">Source available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a></div>
     <br>
     </small>
   </div>
@@ -51,6 +52,7 @@ td { padding: 20px;}
   <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Other Ways to view the Museum</h3>
     <p><a href="showMuseum.php">Browse Catalog Online</a></p>
+    <p><a href="https://forums.webosnation.com/webos-development/332697-refurbishing-app-museum-4.html#post3458072">Add feed to Preware</a></p>
     <p><a href="https://archive.org/details/webOSAppCatalogArchive-Complete">Download Entire Archive</a><br/>
     <small><i>36.9 GB: 3818 apps cataloged, 2033 un-cataloged</i></small></p>
   </div>
@@ -58,7 +60,6 @@ td { padding: 20px;}
 
 <p align='middle'>
   Got some IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>) and <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!<br>
-  <small>This open source project is available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a>.</small>
 </p>
 </body>
 </html>

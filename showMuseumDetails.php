@@ -65,6 +65,8 @@ if (strpos($app_detail["filename"], "://") === false) {
 	$plainURI = $protocol . $config["package_host"] . "/" . $app_detail["filename"];
 } else {
 	$plainURI = $app_detail["filename"];
+	$plainURI = str_replace("http://",$protocol,$plainURI);
+        $plainURI = str_replace("https://",$protocol,$plainURI);
 }
 //Encode URL to reduce brute force downloads
 //	The complete archive will be posted elsewhere to save my bandwidth

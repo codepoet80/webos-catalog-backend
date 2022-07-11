@@ -3716,7 +3716,6 @@ com.floatingstone.pitchpipe_1.4.0_all.ipk
 com.brighthouselabs.pitmlbfans_1.0.0_all.ipk
 com.brighthouselabs.pitnflfans_1.0.0_all.ipk
 com.brighthouselabs.pitnhlfans_1.0.0_all.ipk
-com.phantomhat.pixelism_2.0.0_all.ipk
 com.appible.plaintalesfromthehillsaudio_1.0.0_all.ipk
 com.appible.plaintalesfromthehillsaudiotext_1.0.0_all.ipk
 com.maklesoft.plancastic_1.0.0_all.ipk
@@ -4385,7 +4384,6 @@ com.dezignapps.sneakypics_1.0.1_all.ipk
 com.vocshop.snowglobe_1.0.7_all.ipk
 xxx.snowboard.snowtracker_0.0.1.ipk
 com.appbookshop.epub.snowboardingguide_1.0.0_all.ipk
-com.phantomhat.snowfall_1.0.0_all.ipk
 com.steelenotworking.snw_1.0.1_all.ipk
 com.followinstinct.sobrietycalculator_1.0.1_all.ipk
 de.metaviewsoft.soccer2010_1.2.0_all.ipk

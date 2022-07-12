@@ -1875,7 +1875,6 @@ com.discipleskiessoftware.flitestats_4.0.0_all.ipk
 com.smartmobilesoftware.flightstatus_1.2.0_all.ipk
 com.discipleskiessoftware.getflightstatus_3.1.0_all.ipk
 com.smartmobilesoftware.flighttracker_1.4.0_all.ipk
-com.gregstoll.flightpredictor_1.4.6_all.ipk
 com.soundboardmasters.flinstonessoundboard_1.1.3_all.ipk
 com.magicapps.flipcounting_1.3.5_all.ipk
 com.mycompany.flipyourtext_1.2.0_all.ipk

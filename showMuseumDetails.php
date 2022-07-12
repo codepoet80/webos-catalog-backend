@@ -81,7 +81,7 @@ $homePath = "showMuseum.php?" . http_build_query($query);
 
 //Figure out image paths
 if (strpos($found_app["appIconBig"], "://") === false) {
-	$use_icon = $img_path.$found_app["appIconBig"];
+	$use_icon = $img_path.strtolower($found_app["appIconBig"]);
 } else {
 	$use_icon = $found_app["appIconBig"];
 }
@@ -143,12 +143,12 @@ if (strpos($found_app["appIconBig"], "://") === false) {
 	<?php
 	foreach ($app_detail["images"] as $value) {
 		if (strpos($value["screenshot"], "://") === false) {
-			$use_screenshot = $img_path.$value["screenshot"];
+			$use_screenshot = $img_path.strtolower($value["screenshot"]);
 		} else {
 			$use_screenshot = $value["screenshot"];
 		}
 		if (strpos($value["thumbnail"], "://") === false) {
-			$use_thumb = $img_path.$value["thumbnail"];
+			$use_thumb = $img_path.strtolower($value["thumbnail"]);
 		} else {
 			$use_thumb = $value["thumbnail"];
 		}

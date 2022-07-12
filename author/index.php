@@ -118,7 +118,7 @@ $homePath = $protocol . $config["service_host"]. "";
 		echo("<table cellpadding='5'>");
 		foreach($app_response["data"] as $app) {
 			if (strpos($app["appIcon"], "://") === false) {
-				$use_img = $img_path.$app["appIcon"];
+				$use_img = $img_path.strtolower($app["appIcon"]);
 			} else {
 				$use_img = $app["appIcon"];
 			}

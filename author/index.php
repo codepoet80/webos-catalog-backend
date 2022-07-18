@@ -126,16 +126,18 @@ $homePath = $protocol . $config["service_host"]. "";
 	<h3>Apps by <?php echo $author_data["author"] ?>:</h3>
 	<?php
 		echo("<table cellpadding='5'>");
-		foreach($app_response["data"] as $app) {
-			if (strpos($app["appIcon"], "://") === false) {
-				$use_img = $img_path.strtolower($app["appIcon"]);
-			} else {
-				$use_img = $app["appIcon"];
+		if (isset($app_response)) {
+			foreach($app_response["data"] as $app) {
+				if (strpos($app["appIcon"], "://") === false) {
+					$use_img = $img_path.strtolower($app["appIcon"]);
+				} else {
+					$use_img = $app["appIcon"];
+				}
+				echo("<tr><td align='center' valign='top'><a href='{$protocol}{$config["service_host"]}/showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$use_img}' border='0'></a>");
+				echo("<td width='100%' style='padding-left: 14px'><b><a href='{$protocol}{$config["service_host"]}/showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
+				echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
+				echo("</td></tr>");
 			}
-			echo("<tr><td align='center' valign='top'><a href='{$protocol}{$config["service_host"]}/showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'><img style='width:64px; height:64px' src='{$use_img}' border='0'></a>");
-			echo("<td width='100%' style='padding-left: 14px'><b><a href='{$protocol}{$config["service_host"]}/showMuseumDetails.php?{$_SERVER["QUERY_STRING"]}&app={$app["id"]}'>{$app["title"]}</a></b><br/>");
-			echo("<small>" . substr($app["summary"],0, 180) . "...</small><br/>&nbsp;");
-			echo("</td></tr>");
 		}
 		echo("</table>");
 	?>

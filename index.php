@@ -51,9 +51,9 @@ td { padding: 20px;}
 
   <div id="col2" style="display: inline-block; vertical-align: top;" class="layoutCell">
     <h3>Other Ways to view the Museum</h3>
-    <p><a href="showMuseum.php">Browse Catalog Online</a></p>
+    <p><a href="showMuseum.php">Browse catalog online</a></p>
     <p><a href="https://forums.webosnation.com/webos-development/332697-refurbishing-app-museum-4.html#post3458072">Add feed to Preware</a></p>
-    <p><a href="https://archive.org/details/webOSAppCatalogArchive-Complete">Download Everything</a> from archive.org<br/>
+    <p><a href="https://archive.org/details/webOSAppCatalogArchive-Complete">Full archive from archive.org</a><br/>
     <!-- Update to 3821 after next archival -->
     <small><i>36.9 GB: 3818 apps cataloged, 2033 un-cataloged</i></small></p>
   </div>

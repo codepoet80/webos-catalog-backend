@@ -113,8 +113,8 @@ if (strpos($found_app["appIconBig"], "://") === false) {
 	<tr><td class="rowTitle">Share Link</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $share_url . "'>" . $share_url . "</a>"?></td></tr>
 	<tr><td class="rowTitle">Author</td><td colspan="2" class="rowDetail"><?php echo "<a href='" . $author_url . "'>" . $found_app["author"] . "</a>"?></td></tr>
 	<tr><td class="rowTitle">Version</td><td class="rowDetail"><?php echo $app_detail["version"] ?></td><td></td></tr>
-	<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo nl2br($app_detail["description"]); ?></td></tr>
-	<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo nl2br($app_detail["versionNote"]); ?></td></tr>
+	<tr><td class="rowTitle">Description</td><td colspan="2" class="rowDetail"><?php echo $app_detail["description"]; ?></td></tr>
+	<tr><td class="rowTitle">Version Note</td><td colspan="2" class="rowDetail"><?php echo $app_detail["versionNote"]; ?></td></tr>
 	<?php
 	$browserAsString = $_SERVER['HTTP_USER_AGENT'];
 	if (strstr(strtolower($browserAsString), "webos") || strstr(strtolower($browserAsString), "hpwos")) {

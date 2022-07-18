@@ -102,7 +102,7 @@ $homePath = $protocol . $config["service_host"]. "";
 				<?php 
 					if (isset($author_data['sponsorMessage'])) { 
 						echo "<p>" . $author_data['sponsorMessage']; 
-						if isset($author_data['sponsorLink']) {
+						if (isset($author_data['sponsorLink'])) {
 							echo "<br><a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>";
 						}
 						echo "</p>";

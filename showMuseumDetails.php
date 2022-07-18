@@ -52,11 +52,19 @@ $app_detail = json_decode($content, true);
 
 //Improve some strings for web output
 $img_path = $protocol . $config["image_host"] . "/";
-$app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
-$app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
-$app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
-$app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
-
+if (isset($app_detail["description"])) {
+	$app_detail["description"] = str_replace("\n", "<br>", $app_detail["description"]);
+	$app_detail["description"] = str_replace("\r\n", "<br>", $app_detail["description"]);
+} else {
+	$app_detail["description"] = "";	
+}
+if (isset($app_detail["versionNote"])) {
+	$app_detail["versionNote"] = str_replace("\n", "<br>", $app_detail["versionNote"]);
+	$app_detail["versionNote"] = str_replace("\r\n", "<br>", $app_detail["versionNote"]);
+} else {
+	$app_detail["versionNote"] = "";
+}
+	
 //Let's make some URLs!
 $author_url = "author/" . $found_app["author"];
 $share_url = $protocol . $config["service_host"] . "/app/" . str_replace(" " , "", $found_app["title"]);

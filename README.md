@@ -8,10 +8,7 @@ You can use this app on a Pre3 or Touchpad, or access the catalog in a browser a
 
 ## Requirements
 
-Apache needs to be configured to be case-insensitive:
-https://keystoneit.wordpress.com/2007/02/19/making-apache-case-insensitive/
-
-You'll also need `mb_internal_encoding`:
+Apache will need `mb_internal_encoding`:
 https://stackoverflow.com/questions/1216274/unable-to-call-the-built-in-mb-internal-encoding-method
 
 Some features require `mod_rewrite` in Apache: https://stackoverflow.com/questions/869092/how-to-enable-mod-rewrite-for-apache-2-2

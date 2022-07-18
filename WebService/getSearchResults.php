@@ -63,6 +63,7 @@ foreach ($fullcatalog as $this_app => $app_a) {
 		array_push($results, $app_a);
 	}
 }
+$responseObj = new stdClass();
 $responseObj->data = $results;
 echo (json_encode($responseObj));
 

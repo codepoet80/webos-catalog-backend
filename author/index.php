@@ -56,9 +56,11 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"];
 	//get vendor data (if available)
-	$author_file = fopen($author_path . "/author.json", "rb");
-	$author_content = stream_get_contents($author_file);
-	fclose($author_file);
+	if (file_exists($author_path . "/author.json")) {
+		$author_file = fopen($author_path . "/author.json", "rb");
+		$author_content = stream_get_contents($author_file);
+		fclose($author_file);
+	}
 	if (isset($author_content) && $author_content != ""){ 
 		$author_data = json_decode($author_content, true);
 		$favicon_path = $author_path . "/" . $author_data['favicon'];

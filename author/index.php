@@ -98,12 +98,22 @@ $homePath = $protocol . $config["service_host"]. "";
 		<tr>
 			<td colspan="2">
 				<h1><?php echo $author_data['author']; ?></h1>
-				<p><?php echo $author_data['summary']; ?></p>
-				<p><?php echo $author_data['sponsorMessage']; ?><br><?php echo "<a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>"; ?></p>
+				<?php if isset($author_data['summary']) { echo "<p>" . $author_data['summary'] . "</p>"; } ?>
+				<?php 
+					if (isset($author_data['sponsorMessage'])) { 
+						echo "<p>" . $author_data['sponsorMessage']; 
+						if isset($author_data['sponsorLink']) {
+							echo "<br><a href='" . $author_data['sponsorLink']. "'>" . $author_data['sponsorLink'] . "</a>";
+						}
+						echo "</p>";
+					} 
+				?>
 				<?php
-					//Social icons by Shawn Rubel
-					foreach($author_data['socialLinks'] as $social) {
-						echo "<a href='" . $social . "'>" . render_social($social, $protocol . $config["service_host"]) . "</a> ";
+					if (isset($author_data['socialLinks'])) {
+						//Social icons by Shawn Rubel
+						foreach($author_data['socialLinks'] as $social) {
+							echo "<a href='" . $social . "'>" . render_social($social, $protocol . $config["service_host"]) . "</a> ";
+						}
 					}
 				?>
 			</td>

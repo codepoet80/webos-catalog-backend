@@ -73,7 +73,6 @@ if ($favicon_search) {	//return just the favicon
 	} else {
 		http_response_code(404);
 	}
-	die();
 }
 ?>
 <html>

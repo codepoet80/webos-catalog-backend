@@ -45,13 +45,13 @@ This file is used when an out-of-date version of the App Museum II front-end att
 
 ## The Rest of the Archive
 
-While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that lives on one or more hosts that may be different than the back-end. By changing the `WebService/config.php` file you can point to different hosts for each set of content.
+While this project represents the back-end (and web-based front-end) of App Museum II, it depends on archived content that has been preserved by the community. By changing the `WebService/config.php` file you can point to community hosts for each set of content.
 
 + **AppMetadata**: Detailed app meta data for each app. Available in this [GitHub repository](https://www.github.com/codepoet80/webos-catalog-metadata).
 + **AppImages**: Art (icon and screenshot) files for each app. Available in this [archive](https://archive.org/details/webOSAppCatalogArchive-Complete).
 + **AppPackages**: Installable IPKs (apps) preserved from the HP/Palm App Catalog. Also available in this [archive](https://archive.org/details/webOSAppCatalogArchive-Complete).
 
-The entire App Museum II is currently hosted at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). 
+Links to archives of the entire App Museum II can be found at [appcatalog.webosarchive.com](http://appcatalog.webosarchive.com). 
 
 Mirrors are available at:
 + http://museum.weboslives.eu/AppPackages/

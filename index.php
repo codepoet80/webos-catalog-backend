@@ -59,10 +59,10 @@ td { padding: 20px;}
   </div>
 </div>
 
-<p align='middle'>
+<p align='middle'><small>
   webOS Archive provides the Museum infrastructure and metadata, but relies on community mirrors to host the files themselves.<br>
   Do you have some historical IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>)<br>
   If you can help, <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
-</p>
+</small></p>
 </body>
 </html>

@@ -98,7 +98,7 @@ $homePath = $protocol . $config["service_host"]. "";
 		<tr>
 			<td colspan="2">
 				<h1><?php echo $author_data['author']; ?></h1>
-				<?php if isset($author_data['summary']) { echo "<p>" . $author_data['summary'] . "</p>"; } ?>
+				<?php if (isset($author_data['summary'])) { echo "<p>" . $author_data['summary'] . "</p>"; } ?>
 				<?php 
 					if (isset($author_data['sponsorMessage'])) { 
 						echo "<p>" . $author_data['sponsorMessage']; 

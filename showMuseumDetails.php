@@ -66,7 +66,7 @@ if (isset($app_detail["versionNote"])) {
 }
 	
 //Let's make some URLs!
-$author_url = "author/" . $found_app["author"];
+$author_url = "author/" . str_replace(" " , "%20", $found_app["author"]);
 $share_url = $protocol . $config["service_host"] . "/app/" . str_replace(" " , "", $found_app["title"]);
 //Support absolute download paths (files hosted elsewhere)
 if (strpos($app_detail["filename"], "://") === false) {

@@ -1,7 +1,7 @@
 <?php
 function render_social($link, $basePath) {
 	$imgsrc = $basePath. "/social/web.png";
-	if (strpos($link, "discord.com") !== false || strpos($link, "webosarchive.com/discord") !== false)
+	if (strpos($link, "discord.com") !== false || strpos($link, "webosarchive.org/discord") !== false)
 		$imgsrc = $basePath. "/social/discord.png";
 	if (strpos($link, "facebook.com") !== false)
 		$imgsrc = $basePath. "/social/facebook.png";

@@ -33,7 +33,7 @@ td { padding: 20px;}
   <img src="assets/icon.png"><br/>
   &nbsp;<br/>
   <strong>webOS App Museum II</strong><br/>
-  <small>A project of <a href="http://www.webosarchive.com">webOSArchive.com</a></small><br>
+  <small>A project of <a href="http://www.webosarchive.org">webOS Archive</a></small><br>
 
 </p>
 
@@ -42,8 +42,8 @@ td { padding: 20px;}
     <h3>Download for webOS 2.0+ Devices</h3>
     <a href="<?php echo $use_uri?>">Get Current Version: <?php echo $outputObj["version"]?></a><br><br>
     <small>
-    Requires <a href="http://www.webosarchive.com/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
-    Need <a href="http://www.webosarchive.com/docs/appstores/">help installing</a>?<br>
+    Requires <a href="http://www.webosarchive.org/activation/org.webosinternals.preware_1.9.14_arm.ipk">Preware</a><br>
+    Need <a href="http://www.webosarchive.org/docs/appstores/">help installing</a>?<br>
     <div style="margin-top: 8px">Source available on <a href="https://www.github.com/codepoet80/webos-catalog-backend">GitHub</a></div>
     <br>
     </small>
@@ -61,7 +61,7 @@ td { padding: 20px;}
 
 <p align='middle'><small>
   webOS Archive provides the Museum infrastructure and metadata, but relies on community mirrors to host the files themselves.<br>
-  Do you have some historical IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.com/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.com/wanted.csv">CSV</a>)<br>
+  Do you have some historical IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.org/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.org/wanted.csv">CSV</a>)<br>
   If you can help, <a href="javascript:document.location=atob('bWFpbHRvOmN1cmF0b3JAd2Vib3NhcmNoaXZlLmNvbQ==')">email the curator</a>!
 </small></p>
 </body>

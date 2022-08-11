@@ -5,5 +5,5 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
 else
     $protocol = "http://";
 
-echo file_get_contents($protocol."www.webosarchive.com/menu.php?content=appcatalog");
+echo file_get_contents($protocol."www.webosarchive.org/menu.php?content=appcatalog");
 ?>

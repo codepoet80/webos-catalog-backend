@@ -60,7 +60,7 @@ td { padding: 20px;}
 </div>
 
 <p align='middle'><small>
-  webOS Archive provides the Museum infrastructure and metadata, but relies on community mirrors to host the files themselves.<br>
+  webOS Archive provides the Museum infrastructure and metadata, but relies on community mirrors to host the files.<br>
   Do you have some historical IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.org/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.org/wanted.csv">CSV</a>)<br>
   <?php
     if (isset($config['contact_email']) && !empty($config['contact_email'])) {

@@ -12,7 +12,8 @@ return array(
     'service_host' => 'appcatalog.myhost.com',
     'metadata_host' => 'appmetadata.myhost.com',
     'image_host' => select_lb_resource($image_mirrors),
-    'package_host' => select_lb_resource($package_mirrors)
+    'package_host' => select_lb_resource($package_mirrors),
+    'contact_email' => ''   //leave empty for none
 );
 
 //TODO: If we had a state machine, we could be more sophisticated.

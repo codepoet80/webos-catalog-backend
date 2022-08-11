@@ -64,7 +64,7 @@ td { padding: 20px;}
   Do you have some historical IPKs archived that you want to contribute? Check the Wanted list (<a href="http://appcatalog.webosarchive.org/wanted.txt">TXT</a>, <a href="http://appcatalog.webosarchive.org/wanted.csv">CSV</a>)<br>
   <?php
     if (isset($config['contact_email']) && !empty($config['contact_email'])) {
-      echo "If you can help, <a href=\"javascript:document.location=atob('" . base64_encode("mailto:" . $config['contact_email']) . "')\">email the curator</a>!";
+      echo "If you can help, <a href=\"javascript:document.location=atob('" . base64_encode("mailto:" . $config['contact_email']) . "?subject=webOS App Museum')\">email the curator</a>!";
     }
   ?>
 </small></p>

@@ -141,9 +141,6 @@ $homePath = $protocol . $config["service_host"]. "";
 		echo("</table>");
 	?>
 	</div>
-	<!--
-	<?php print_r($app_response); ?>
-	-->
 	<?php
 	include '../footer.php';
 	?>

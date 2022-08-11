@@ -7,8 +7,6 @@ if (!isset($_SESSION['encode_salt']))
 {
 	$_SESSION['encode_salt'] = uniqid();
 }
-//Load archives
-//$json_a = load_catalogs(array("../newerAppData.json", "../archivedAppData.json"));
 
 //figure out what protocol to use
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
@@ -40,30 +38,30 @@ fclose($app_file);
 $app_response = json_decode($app_content, true);
 
 //find info about author
-//	from query
+// from query
 $author_data = [
 	"author" => mb_convert_case(urldecode($query), MB_CASE_TITLE),
 	"favicon" => "../../favicon.ico",
 	"iconBig" => "../../author.png"
 ];
 
-//	from app results list (better)
+// from app results list (better)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["author"])) {
 	$author_data["author"] = $app_response["data"][0]["author"];
 }
 
-//	from explicit author file (best)
+// from explicit author file (best)
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"];
 	//get vendor data (if available)
-	if (file_exists($author_path . "/author.json")) {
-		$author_file = fopen($author_path . "/author.json", "rb");
+	$author_file = fopen($author_path . "/author.json", "rb");
+	if ($author_file) {
 		$author_content = stream_get_contents($author_file);
 		fclose($author_file);
-	}
-	if (isset($author_content) && $author_content != ""){ 
-		$author_data = json_decode($author_content, true);
-		$favicon_path = $author_path . "/" . $author_data['favicon'];
+		if (isset($author_content) && $author_content != ""){ 
+			$author_data = json_decode($author_content, true);
+			$favicon_path = $author_path . "/" . $author_data['favicon'];
+		}
 	}
 }
 

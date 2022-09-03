@@ -54,7 +54,7 @@ if (isset($app_response) && isset($app_response["data"][0]) && isset($app_respon
 if (isset($app_response) && isset($app_response["data"][0]) && isset($app_response["data"][0]["vendorId"])) {
 	$author_path .= $app_response["data"][0]["vendorId"];
 	//get vendor data (if available)
-	$author_file = fopen($author_path . "/author.json", "rb");
+	@$author_file = fopen($author_path . "/author.json", "rb");
 	if ($author_file) {
 		$author_content = stream_get_contents($author_file);
 		fclose($author_file);

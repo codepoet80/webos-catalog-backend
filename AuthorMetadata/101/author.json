@@ -1,0 +1,14 @@
+{
+    "vendorId": 100,
+    "author": "codepoet",
+    "summary": "I'm codepoet, the developer of a number of recent (2022!) apps for webOS and LuneOS. All my apps are open source, including any back-end services that support them. Check out my GitHub link below, or hit me up on the Discord server!",
+    "favicon": "favicon.ico",
+    "icon": "icon.jpg",
+    "iconBig": "iconBig.png",
+    "sponsorMessage": "Like my apps? Why not buy me a coffee?",
+    "sponsorLink": "https://www.buymeacoffee.com/codepoet80",
+    "socialLinks": [
+        "https://www.webosarchive.org/discord",
+        "https://www.github.com/codepoet80"
+    ]
+}
